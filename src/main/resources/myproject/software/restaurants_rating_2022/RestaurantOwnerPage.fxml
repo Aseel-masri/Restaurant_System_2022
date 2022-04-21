@@ -1,8 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.ownerController">
-
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.ownerController">
+    <children>
+        <HBox layoutX="100.0" layoutY="46.0" prefHeight="175.0" prefWidth="600.0" style="-fx-border-color: #000000; -fx-border-width: 1px;" AnchorPane.topAnchor="140.0">
+         <children>
+            <VBox prefHeight="175.0" prefWidth="200.0">
+               <children>
+                      <ImageView fx:id="left_image" fitHeight="175.0" fitWidth="233.0" onMousePressed="#update_left_image" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/add.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="200.0" prefWidth="200.0">
+               <children>
+                      <ImageView fx:id="main_image" fitHeight="175.0" fitWidth="196.0" onMousePressed="#uplode_main_image" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/add.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="175.0" prefWidth="200.0">
+               <children>
+                      <ImageView fx:id="right_image" fitHeight="175.0" fitWidth="233.0" onMousePressed="#update_right_image" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/add.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+        </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="14.0" prefHeight="33.0" prefWidth="399.0" text="Restaurant Name">
+         <font>
+            <Font name="Calibri Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="43.0" layoutY="84.0" prefHeight="17.0" prefWidth="127.0" text="Images" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="43.0" layoutY="352.0" prefHeight="17.0" prefWidth="127.0" text="Location" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="43.0" layoutY="444.0" prefHeight="17.0" prefWidth="127.0" text="Menu" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
+      <ScrollPane hbarPolicy="NEVER" layoutX="100.0" layoutY="474.0" prefHeight="101.0" prefWidth="600.0" style="-fx-border-color: #000000;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="600.0">
+               <children>
+                  <JFXTextArea fx:id="menu" editable="false" maxHeight="100.0" prefHeight="100.0" prefWidth="600.0" wrapText="true" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <JFXComboBox fx:id="cityes" layoutX="107.0" layoutY="390.0" prefHeight="25.0" prefWidth="192.0" promptText="cityes" style="-fx-border-color: #000000;" />
+    </children>
 </AnchorPane>

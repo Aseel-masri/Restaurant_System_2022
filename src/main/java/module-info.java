@@ -10,6 +10,7 @@ module myproject.software.restaurants_rating_2022 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires com.jfoenix;
 
     opens myproject.software.restaurants_rating_2022 to javafx.fxml;
     exports myproject.software.restaurants_rating_2022;
