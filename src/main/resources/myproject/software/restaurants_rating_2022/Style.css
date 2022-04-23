@@ -38,3 +38,70 @@
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
 }
+.login{
+    -fx-background-color:  #4d0000;
+}
+.login:hover{
+    -fx-background-color:  #5d1010;
+}
+.resownersignup{
+    -fx-background-color: none;
+    -fx-border-style:hidden hidden solid hidden;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
+}
+.resownersignup:focused{
+    -fx-text-fill: white;
+    -fx-border-style:hidden hidden solid hidden;
+    -fx-background-color: none;
+    -fx-border-color: #3090ff;
+    -fx-border-width: 2px;
+}
+.resownersignupbtn{
+    -fx-background-color:  #663d00;
+    -fx-background-radius: 25;
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+.resownersignupbtn:hover{
+    -fx-background-color:  #9F6940;
+    -fx-background-radius: 25;
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.loginusertextfield{
+-fx-background-color:  #800000;
+    -fx-border-style:  hidden hidden solid hidden;
+    -fx-border-width: 2px;
+    -fx-border-color:  #4d0000;
+    -fx-text-fill: #ffffff;
+}
+
+.loginusertextfield:focused{
+    -fx-background-color:  #800000;
+    -fx-border-style:  hidden hidden solid hidden;
+    -fx-border-width: 2px;
+    -fx-border-color:  #9E3F78;
+    -fx-text-fill: #ffffff;
+
+}
+.resownerloginbtn{
+    -fx-background-color:  #804d00;
+}
+.resownerloginbtn:hover{
+    -fx-background-color:  #9F6030;
+}
+.resownerlogintextfield{
+    -fx-background-color: none;
+    -fx-text-fill: #ffffff;
+    -fx-border-style:  hidden hidden solid hidden;
+    -fx-border-width: 2px;
+    -fx-border-color:  #663d00;
+}
+.resownerlogintextfield:focused{
+    -fx-background-color: none;
+    -fx-text-fill: #ffffff;
+    -fx-border-style:  hidden hidden solid hidden;
+    -fx-border-width: 2px;
+    -fx-border-color:  #844515;
+}

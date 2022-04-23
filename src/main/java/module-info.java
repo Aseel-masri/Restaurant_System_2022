@@ -11,6 +11,7 @@ module myproject.software.restaurants_rating_2022 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires com.jfoenix;
+    requires java.sql;
 
     opens myproject.software.restaurants_rating_2022 to javafx.fxml;
     exports myproject.software.restaurants_rating_2022;
