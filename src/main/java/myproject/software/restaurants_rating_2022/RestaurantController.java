@@ -10,16 +10,16 @@ import javafx.scene.layout.HBox;
     public class RestaurantController {
 
         @FXML
-        private ImageView IMG;
+        private ImageView RestoIMG;
         @FXML
         private Label RestoName;
 
 
-        private Restaurant rest;
-        public void setData() {
-            this.rest=rest;
-            RestoName.setText(rest.getName());
-            Image image=new Image(getClass().getResourceAsStream(rest.getImgSrc()));
-            IMG.setImage(image);
+        private Restaurant restaurant;
+        public void setData(Restaurant restaurant) {
+            this.restaurant=restaurant;
+            RestoName.setText(restaurant.getName());
+         //  Image image=new Image(getClass().getResourceAsStream(restaurant.getImgSrc()));
+         //   RestoIMG.setImage(image);
         }
     }
