@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="739.0" style="-fx-background-color: #797a7b;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.LoginUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="739.0" style="-fx-background-color: #797a7b;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.LoginUserController">
    <children>
       <AnchorPane layoutX="416.0" layoutY="34.0" opacity="0.79" prefHeight="422.0" prefWidth="297.0" style="-fx-background-color: #800000;">
          <children>
@@ -78,7 +78,7 @@
             <Image url="@../../../image/download-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button fx:id="closebtn" layoutX="713.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#closepage" prefHeight="8.0" prefWidth="5.0" style="-fx-background-color: #797a7b;">
+      <Button fx:id="closebtn" layoutX="713.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#closepage" prefHeight="21.0" prefWidth="20.0" style="-fx-background-color: #797a7b;">
          <padding>
             <Insets left="1.0" right="3.0" top="3.0" />
          </padding>

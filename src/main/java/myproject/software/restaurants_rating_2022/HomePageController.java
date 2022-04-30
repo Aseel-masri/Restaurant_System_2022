@@ -7,13 +7,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,64 +44,37 @@ public class HomePageController implements Initializable {
     @FXML
     private ScrollPane scroll;
     private MyListener myListener;
+    @FXML private javafx.scene.control.Button closebtn;
+    @FXML
+    void closepage(MouseEvent event) {
+        Stage stage = (Stage) closebtn.getScene().getWindow();
+
+        stage.close();
+
+    }
 
     Image image;
     private List<Restaurant> restaurants =new  ArrayList<>();
-    private List<Restaurant> getData(){
+    private List<Restaurant> getData() throws SQLException {
         List<Restaurant>rstaurants=new ArrayList<>();
 
             Restaurant rstaurant;
 
             rstaurant = new Restaurant();
-            rstaurant.setName("Dominos");
-            rstaurant.setImgSrc("/image/d2.png");
-            rstaurants.add(rstaurant);
+        conection conClass=new conection();
+        Connection c=conClass.getConnection();
 
-            rstaurant = new Restaurant();
-            rstaurant.setName("Treio");
-            rstaurant.setImgSrc("/image/T100.png");
-            rstaurants.add(rstaurant);
+            Statement s=c.createStatement();
+            String sql="select * from restaurants";
+        ResultSet r=s.executeQuery(sql);
 
-            rstaurant = new Restaurant();
-            rstaurant.setName("W");
-            rstaurant.setImgSrc("/image/w1.jpg");
-            rstaurants.add(rstaurant);
+            while (r.next()) {
+                rstaurant = new Restaurant();
+                rstaurant.setName(r.getString("res_name"));
 
-            rstaurant = new Restaurant();
-            rstaurant.setName("Solitaire ");
-            rstaurant.setImgSrc("/image/solitare.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("Ward");
-            rstaurant.setImgSrc("/image/ward.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("Lemon W Na3na3");
-            rstaurant.setImgSrc("/image/l1.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("90S");
-            rstaurant.setImgSrc("/image/N33jpg.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("KFC");
-            rstaurant.setImgSrc("/image/k2.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("Hardees");
-            rstaurant.setImgSrc("/image/Hrdees.jpg");
-            rstaurants.add(rstaurant);
-
-            rstaurant = new Restaurant();
-            rstaurant.setName("Dominos");
-            rstaurant.setImgSrc("/image/d2.png");
-            rstaurants.add(rstaurant);
-
+                rstaurant.setImgSrc(r.getString("res_main_image"));
+                rstaurants.add(rstaurant);
+            }
 
         return rstaurants;
     }
@@ -116,8 +95,16 @@ public class HomePageController implements Initializable {
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
 
-        NormalRstaurants.addAll(getData());
-        TrendingRstaurants.addAll(getData());
+        try {
+            NormalRstaurants.addAll(getData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            TrendingRstaurants.addAll(getData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         if(NormalRstaurants.size()>0){
             setChosenRestoCard(NormalRstaurants.get(0));
             myListener=new MyListener() {
