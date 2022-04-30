@@ -191,9 +191,9 @@
         </HBox>
         <HBox layoutX="377.0" layoutY="369.0" prefHeight="319.0" prefWidth="820.0">
             <children>
-                <ScrollPane fx:id="scroll" prefHeight="302.0" prefWidth="785.0" styleClass="transparent" stylesheets="@Style.css" HBox.hgrow="ALWAYS">
+                <ScrollPane fx:id="scroll" prefHeight="309.0" prefWidth="793.0" styleClass="transparent" stylesheets="@Style.css" HBox.hgrow="ALWAYS">
                     <HBox.margin>
-                        <Insets bottom="10.0" left="20.0" right="15.0" />
+                        <Insets bottom="10.0" left="15.0" right="15.0" />
                     </HBox.margin>
                     <content>
                         <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
@@ -202,12 +202,15 @@
                             </columnConstraints>
                         </GridPane>
                     </content>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="20.0" />
+               </padding>
                 </ScrollPane>
             </children>
         </HBox>
-      <HBox layoutX="376.0" layoutY="135.0" prefHeight="204.0" prefWidth="826.0">
+      <HBox layoutX="393.0" layoutY="135.0" prefHeight="204.0" prefWidth="810.0">
          <padding>
-            <Insets bottom="30.0" />
+            <Insets bottom="30.0" left="10.0" />
          </padding>
          <children>
             <GridPane fx:id="grid2" prefHeight="66.0" prefWidth="9.0">
@@ -217,11 +220,11 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="403.0" layoutY="347.0" prefHeight="18.0" prefWidth="766.0">
+      <HBox layoutX="403.0" layoutY="354.0" prefHeight="14.0" prefWidth="766.0">
          <children>
             <Separator prefHeight="1.0" prefWidth="770.0" style="-fx-color: #f77911;">
                <HBox.margin>
-                  <Insets />
+                  <Insets top="2.0" />
                </HBox.margin>
                <padding>
                   <Insets bottom="5.0" top="10.0" />

@@ -24,6 +24,9 @@
 .shadow{
     -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);
 }
+.Textshadow{
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);
+}
 .chosen-Restaurant-card{
     -fx-background-color: #BBBBC1;
     -fx-background-raduis:  50;
@@ -40,7 +43,15 @@
     -fx-background-radius: 30;
 }
 
-
+.cardPhoto{
+    -fx-max-width: 195px;
+    -fx-max-height: 139px;
+    -fx-alignment: center;
+}
+.hight_Width{
+    -fx-max-height: 197;
+    -fx-max-width: 257;
+}
 
 .login{
     -fx-background-color:  #4d0000;

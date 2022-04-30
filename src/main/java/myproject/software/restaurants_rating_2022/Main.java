@@ -14,13 +14,13 @@ public class Main extends Application {
     @Override
 
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("restaurantOwnerlog.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("HomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
-        stage.setHeight(500);
-        stage.setWidth(750);
+        stage.setHeight(667);
+        stage.setWidth(1203);
         stage.show();
     }
 
