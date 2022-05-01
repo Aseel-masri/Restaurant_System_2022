@@ -40,7 +40,8 @@ public class HomePageController implements Initializable {
 
     @FXML
     private GridPane grid2;
-
+    @FXML
+    private GridPane grid3;
     @FXML
     private ScrollPane scroll;
     private MyListener myListener;
@@ -55,6 +56,23 @@ public class HomePageController implements Initializable {
 
     Image image;
     private List<Restaurant> restaurants =new  ArrayList<>();
+    private List<Comment>Comments=new ArrayList<>();
+
+
+    private List<Comment>getDateCom(){
+        List<Comment>comments=new ArrayList<>();
+        for (int i=0;i<10;i++) {
+            Comment comment = new Comment();
+            comment.setAuthorEmail("dana@hotmail.com");
+            comment.setDay_Date("Monday 1:45:02");
+            comment.setText("I like this restaurant because ...");
+            comments.add(comment);
+        }
+
+        return comments;
+
+
+    }
     private List<Restaurant> getData() throws SQLException {
         List<Restaurant>rstaurants=new ArrayList<>();
 
@@ -94,6 +112,8 @@ public class HomePageController implements Initializable {
         //restaurants.addAll(getData());
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
+        List<Comment>commentsList=new ArrayList<>();
+        commentsList.addAll(getDateCom());
 
         try {
             NormalRstaurants.addAll(getData());
@@ -129,7 +149,18 @@ public class HomePageController implements Initializable {
         int coulmn=1;
         int row=1;
         try {
-
+            for(int i=0;i<commentsList.size();i++){
+                FXMLLoader fxmlLoader=new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Comment.fxml"));
+                AnchorPane anchorPane=fxmlLoader.load();
+                CommentController commentController=fxmlLoader.getController();
+                commentController.setDate(commentsList.get(i));
+                grid3.add(anchorPane,coulmn,row);
+                coulmn++;
+                if(coulmn==4){row++;coulmn=1;}
+                grid3.setVgap(10);
+                grid3.setHgap(10);
+            }
 
         for(int i=0;i <NormalRstaurants.size() ;i++){
             FXMLLoader fxmlLoader=new FXMLLoader();

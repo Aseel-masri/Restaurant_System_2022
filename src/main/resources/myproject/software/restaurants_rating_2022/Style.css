@@ -13,6 +13,10 @@
     -fx-background-color: #828282;
     -fx-background-radius: 30;
 }
+.comments{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30;
+}
 .viewRestaurantPage-button{
     -fx-background-color: #828282;
     -fx-background-radius: 30;
@@ -85,7 +89,7 @@
 }
 
 .loginusertextfield{
--fx-background-color:  #800000;
+    -fx-background-color:  #800000;
     -fx-border-style:  hidden hidden solid hidden;
     -fx-border-width: 2px;
     -fx-border-color:  #4d0000;
