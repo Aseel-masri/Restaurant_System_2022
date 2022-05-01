@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="183.0" prefWidth="198.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.CommentController">
+   <children>
+      <VBox prefHeight="183.0" prefWidth="225.0" style="-fx-background-radius: 40;" styleClass="comments" stylesheets="@Style.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="197.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="comments">
+               <children>
+                  <VBox prefHeight="58.0" prefWidth="178.0" style="-fx-background-radius: 10; -fx-background-color: #e6d3b8;">
+                     <children>
+                        <Label fx:id="AuthorEmail" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #f5f3f0;" text=" Kenanaturabi@gmail.com" textAlignment="CENTER" textFill="#080808">
+                           <font>
+                              <Font name="Californian FB Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Day_Time" alignment="CENTER" prefHeight="28.0" prefWidth="169.0" style="-fx-background-color: #f5f3f0;" text="Wednesday 12:30 Pm" textFill="#df901a">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="149.0" prefWidth="218.0">
+               <children>
+                  <TextArea fx:id="Comment_Content" editable="false" prefHeight="95.0" prefWidth="208.0" style="-fx-background-color: #e6d3b8; -fx-background-radius: 20; -fx-border-radius: 40;" styleClass="comments" text="&#10;Yesterday I went there ,really the food was perfect&#10;Also the service and restuarant decor very good">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding></TextArea>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
