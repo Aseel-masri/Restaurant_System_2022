@@ -10,7 +10,7 @@ public class CommentController {
     private Label AuthorEmail;
 
     @FXML
-    private TextArea Comment_Content;
+    private Label Comment_Content;
 
     @FXML
     private Label Day_Time;

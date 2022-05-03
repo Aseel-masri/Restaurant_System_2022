@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -45,6 +46,14 @@ public class HomePageController implements Initializable {
     @FXML
     private ScrollPane scroll;
     private MyListener myListener;
+
+    @FXML
+    private AnchorPane rest_Pane;
+    @FXML
+    private Button bk_btn;
+
+    @FXML
+    private Button ViewRestPage;
     @FXML private javafx.scene.control.Button closebtn;
     @FXML
     void closepage(MouseEvent event) {
@@ -53,21 +62,32 @@ public class HomePageController implements Initializable {
         stage.close();
 
     }
+    @FXML
+     void back_btn(MouseEvent event)throws IOException{
+        rest_Pane.setVisible(false);
+    }
+
+    @FXML
+     void view(MouseEvent event){
+        rest_Pane.setVisible(true);
+    }
 
     Image image;
     private List<Restaurant> restaurants =new  ArrayList<>();
     private List<Comment>Comments=new ArrayList<>();
 
 
-    private List<Comment>getDateCom(){
+    private List<Comment>getDataCom(){
         List<Comment>comments=new ArrayList<>();
-        for (int i=0;i<10;i++) {
-            Comment comment = new Comment();
-            comment.setAuthorEmail("dana@hotmail.com");
-            comment.setDay_Date("Monday 1:45:02");
-            comment.setText("I like this restaurant because ...");
-            comments.add(comment);
-        }
+
+            for(int i=0;i<10;i++) {
+                Comment comment = new Comment();
+                comment.setAuthorEmail("danaturabi@hotmail.com");
+                comment.setDay_Date("Monday At 1:45:02 am");
+                comment.setText("I like this restaurant because ...");
+                comments.add(comment);
+            }
+
 
         return comments;
 
@@ -113,7 +133,9 @@ public class HomePageController implements Initializable {
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
         List<Comment>commentsList=new ArrayList<>();
-        commentsList.addAll(getDateCom());
+
+
+        try{  commentsList.addAll(getDataCom());}catch(Exception e){e.printStackTrace();}
 
         try {
             NormalRstaurants.addAll(getData());
@@ -148,6 +170,8 @@ public class HomePageController implements Initializable {
 
         int coulmn=1;
         int row=1;
+        int c=1;
+        int r=1;
         try {
             for(int i=0;i<commentsList.size();i++){
                 FXMLLoader fxmlLoader=new FXMLLoader();
@@ -155,11 +179,11 @@ public class HomePageController implements Initializable {
                 AnchorPane anchorPane=fxmlLoader.load();
                 CommentController commentController=fxmlLoader.getController();
                 commentController.setDate(commentsList.get(i));
-                grid3.add(anchorPane,coulmn,row);
-                coulmn++;
-                if(coulmn==4){row++;coulmn=1;}
-                grid3.setVgap(10);
-                grid3.setHgap(10);
+                grid3.add(anchorPane,c,r);
+                c++;
+                if(c==2){r++;c=1;}
+              //  grid3.setVgap(10);
+             //   grid3.setHgap(10);
             }
 
         for(int i=0;i <NormalRstaurants.size() ;i++){
@@ -168,7 +192,6 @@ public class HomePageController implements Initializable {
             AnchorPane anchorPane = fxmlLoader.load();
             RestaurantController restaurantController=fxmlLoader.getController();
             restaurantController.setData(NormalRstaurants.get(i),myListener);
-
             grid.add(anchorPane,coulmn,row);
             coulmn++;
             if(coulmn==4){row++; coulmn=1;}

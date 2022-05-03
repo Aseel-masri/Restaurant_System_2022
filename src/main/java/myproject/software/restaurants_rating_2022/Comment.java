@@ -9,9 +9,9 @@ public class Comment {
 
    }
     public Comment(String authorEmail, String text, String day_Date) {
-        AuthorEmail = authorEmail;
+       this.AuthorEmail = authorEmail;
         this.text = text;
-        Day_Date = day_Date;
+        this.Day_Date = day_Date;
     }
 
     public String getAuthorEmail() {
