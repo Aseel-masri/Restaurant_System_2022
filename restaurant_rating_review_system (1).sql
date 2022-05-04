@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2022 at 04:58 PM
+-- Generation Time: May 04, 2022 at 01:54 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -32,6 +32,13 @@ CREATE TABLE `admin` (
   `admin_email` text NOT NULL,
   `admin_pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_pass`) VALUES
+(1, 'admin2022@gmail.com', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -74,7 +81,7 @@ CREATE TABLE `rating` (
   `foodquality_rate` int(11) NOT NULL,
   `Priceforservice_rate` int(11) NOT NULL,
   `Cleanliness_rate` int(11) NOT NULL,
-  `avg_rate` int(11) NOT NULL
+  `avg_rate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -149,7 +156,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_city`, `user_pass`) VALUES
-(1, 'baraa', 'baraa5hfg@gmail.com', 'Nablus', '12344321');
+(1, 'baraa', 'baraa5hfg@gmail.com', 'Nablus', '12344321'),
+(2, 'ahmad', 'ahmad@gmail.com', 'nablus', '1234');
 
 --
 -- Indexes for dumped tables

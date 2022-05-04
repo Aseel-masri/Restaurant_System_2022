@@ -385,12 +385,12 @@
                         </VBox>
                     </children>
                 </HBox>
-                <Button layoutX="693.0" layoutY="610.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Add Comment " textFill="WHITE">
+                <Button layoutX="693.0" layoutY="572.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Add Comment " textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="693.0" layoutY="648.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="View Menu" textFill="WHITE">
+                <Button layoutX="693.0" layoutY="610.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="View Menu" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -400,7 +400,7 @@
                   <Font name="STCaiyun" size="41.0" />
                </font>
             </Label>
-            <TextField layoutX="23.0" layoutY="650.0" prefHeight="26.0" prefWidth="654.0" promptText="Type your comment here " />
+            <TextField layoutX="24.0" layoutY="640.0" prefHeight="26.0" prefWidth="654.0" promptText="Type your comment here " />
             <Button layoutX="351.0" layoutY="432.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="136.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Save Rates" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
@@ -411,7 +411,7 @@
                   <Font name="Berlin Sans FB" size="25.0" />
                </font>
             </Label>
-                  <ScrollPane layoutX="23.0" layoutY="497.0" prefHeight="150.0" prefWidth="654.0">
+                  <ScrollPane layoutX="23.0" layoutY="482.0" prefHeight="150.0" prefWidth="654.0">
                       <content>
                           <GridPane fx:id="grid3" prefHeight="146.0" prefWidth="655.0">
                               <columnConstraints>

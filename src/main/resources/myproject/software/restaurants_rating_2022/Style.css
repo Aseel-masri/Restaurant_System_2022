@@ -129,3 +129,20 @@
     -fx-border-color:#f77911 ;
 
 }
+.bigloginBtns{
+    -fx-background-color:  #4d0000;
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+.bigloginBtns:hover{
+    -fx-background-color:  #d132bc;
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+}
+.adminBtn{
+    -fx-background-color:  #b3e6ff;
+}
+
+.adminBtn:hover{
+    -fx-background-color: #7989db;
+    -fx-text-fill: #ffffff;
+}
