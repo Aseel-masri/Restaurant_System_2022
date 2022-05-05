@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="exit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="701.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView disable="true" fitHeight="467.0" fitWidth="749.0" opacity="0.27" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/AboutUs.jpg" />
+         </image>
+        </ImageView>
+      <Label layoutX="21.0" layoutY="14.0" prefHeight="23.0" prefWidth="163.0" text="Our Story : " textFill="#9e1414">
+         <font>
+            <Font name="Yet R" size="21.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="11.0" layoutY="41.0" opacity="0.8" prefHeight="174.0" prefWidth="351.0" style="-fx-background-color: none; -fx-border-radius: 20;" text="&#10;We made a restaurant evaluation system which let &#10;users exchange thier experiences through comments&#10; and rates . Also the application gives users full details&#10; about specific restaurantlike : Address , Menu , &#10;Contact Info , Overall rate and people comments. &#10;And the applicationgives user the ability to search about&#10; near restaurants to him/here also the app shows the &#10;3 restaurants  which got highest rates (Trendinfg Restaurants) . " />
+      <Label layoutX="381.0" layoutY="14.0" prefHeight="23.0" prefWidth="106.0" text="FAQ :" textFill="#9e1414">
+         <font>
+            <Font name="Yet R" size="21.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="368.0" layoutY="41.0" opacity="0.8" prefHeight="405.0" prefWidth="330.0" style="-fx-background-color: none;" text="&#10;Q1) Can I add comment or rate ?&#10;Ans) Yes ,but you have to be logged in firstly &#10;&#10;Q2 ) Can I update my comments or rate?&#10;Ans) Yes you can.&#10;&#10;Q3) Does this application free  or commercial?&#10;Ans) This app for Free&#10;&#10;Q4) Do the trending restaurants update ?&#10;Ans) Yes there is frequently update for trengind restaurants&#10;&#10;Q5) How can I contact with admin ?&#10;Ans) By email or phone call if necessary&#10;&#10;Q6) Do the restaurants from all the world or belong to&#10; spesific region ?&#10;Ans) This application contains palistinian restaurants only.&#10;&#10;Q6) Why this app?&#10;Ans6) Because our app is the only one from this type &#10;in palestine   " />
+      <Label layoutX="21.0" layoutY="232.0" prefHeight="23.0" prefWidth="142.0" text="Contact Us :" textFill="#9e1414">
+         <font>
+            <Font name="Yet R" size="21.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="11.0" layoutY="261.0" opacity="0.8" prefHeight="49.0" prefWidth="351.0" style="-fx-background-color: none;" text="Email : Restaurant_Rating_System_2022@gmail.com&#10;Phone#: 0598100250" />
+      <Label layoutX="21.0" layoutY="328.0" prefHeight="23.0" prefWidth="163.0" text="developed by :" textFill="#9e1414">
+         <font>
+            <Font name="Yet R" size="21.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="11.0" layoutY="359.0" opacity="0.8" prefHeight="86.0" prefWidth="351.0" style="-fx-background-color: none;" text="Kenana Turabi &amp; Baraa Khalaf &#10;Mira Jamous &amp; Aseel Masri &#10;Ahmad Rasheed &amp; Osaid Yaseen&#10;" />
+    </children>
+</AnchorPane>
