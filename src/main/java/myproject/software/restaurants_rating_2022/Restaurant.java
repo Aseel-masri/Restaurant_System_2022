@@ -4,10 +4,12 @@ public class Restaurant {
     String name;
 
     String imgSrc;
+    int id;
 
 
-    public Restaurant(String name, String color, String imgSrc) {
+    public Restaurant(String name, String color, String imgSrc,int id) {
         this.name = name;
+        this.id=id;
 
         this.imgSrc = imgSrc;
     }
@@ -18,6 +20,14 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 

@@ -24,6 +24,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class LoginUserController {
+    public static int user_id;
     public ResultSet r=null;
     public String mail,password;
 
@@ -42,12 +43,13 @@ public class LoginUserController {
         Connection c=conClass.getConnection();
         try {
             Statement s=c.createStatement();
-            String sql="select user_email,user_pass from user where user_email='"+email.getText()+"'";
+            String sql="select user_id,user_email,user_pass from user where user_email='"+email.getText()+"'";
             r=s.executeQuery(sql);
 
             while (r.next()){
                 mail=r.getString("user_email");
                 password=r.getString("user_pass");
+                user_id= Integer.parseInt(r.getString("user_id"));
 
             }
             if (email.getText().equalsIgnoreCase(mail)&&pass.getText().equals(password)){
@@ -62,6 +64,7 @@ public class LoginUserController {
                 stage.setY(5);
                 stage.setX(5);
                 stage.show();
+
 
 
             }

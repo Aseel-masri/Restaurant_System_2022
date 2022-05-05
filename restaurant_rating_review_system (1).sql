@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2022 at 01:54 PM
+-- Generation Time: May 05, 2022 at 11:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -77,12 +77,19 @@ CREATE TABLE `rating` (
   `rate_id` int(11) NOT NULL,
   `user-id` int(11) NOT NULL,
   `res_id` int(11) NOT NULL,
-  `services_rate` int(11) NOT NULL,
-  `foodquality_rate` int(11) NOT NULL,
-  `Priceforservice_rate` int(11) NOT NULL,
-  `Cleanliness_rate` int(11) NOT NULL,
+  `services_rate` float NOT NULL,
+  `foodquality_rate` float NOT NULL,
+  `Priceforservice_rate` float NOT NULL,
+  `Cleanliness_rate` float NOT NULL,
   `avg_rate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`rate_id`, `user-id`, `res_id`, `services_rate`, `foodquality_rate`, `Priceforservice_rate`, `Cleanliness_rate`, `avg_rate`) VALUES
+(1, 1, 6, 3, 3, 3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -98,23 +105,24 @@ CREATE TABLE `restaurants` (
   `res_image1` text DEFAULT NULL,
   `res_image2` text DEFAULT NULL,
   `res_menu` text NOT NULL,
-  `owner_id` int(11) NOT NULL
+  `owner_id` int(11) NOT NULL,
+  `middle_image` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`res_id`, `res_name`, `res_city`, `res_main_image`, `res_image1`, `res_image2`, `res_menu`, `owner_id`) VALUES
-(1, 'Dominos', 'nablus', '/image/d2.png', NULL, NULL, '...', 1),
-(2, 'Treio', 'nablus', '/image/T100.png', NULL, NULL, '...', 1),
-(3, 'w', 'nablus', '/image/w1.jpg', NULL, NULL, '...', 1),
-(4, 'Solitaire', 'nablus', '/image/solitare.jpg', NULL, NULL, '...', 1),
-(5, 'ward', 'nablus', '/image/ward.jpg', NULL, NULL, '...', 1),
-(6, 'Lemon W Na3na3', 'nablus', '/image/l1.jpg', NULL, NULL, '...', 1),
-(7, '90S', 'nablus', '/image/N33jpg.jpg', NULL, NULL, '...', 1),
-(8, 'KFC', 'nablus', '/image/k2.jpg', NULL, NULL, '...', 1),
-(9, 'Hardees', 'nablus', '/image/Hrdees.jpg', NULL, NULL, '...', 1);
+INSERT INTO `restaurants` (`res_id`, `res_name`, `res_city`, `res_main_image`, `res_image1`, `res_image2`, `res_menu`, `owner_id`, `middle_image`) VALUES
+(1, 'Dominos', 'nablus', '/image/d2.png', NULL, NULL, '...', 1, NULL),
+(2, 'Treio', 'nablus', '/image/T100.png', NULL, NULL, '...', 1, NULL),
+(3, 'w', 'nablus', '/image/w1.jpg', NULL, NULL, '...', 1, NULL),
+(4, 'Solitaire', 'nablus', '/image/solitare.jpg', NULL, NULL, '...', 1, NULL),
+(5, 'ward', 'nablus', '/image/ward.jpg', '/image/new_ward1stjpg.jpg', '/image/new_ward2nd.jpg', '...', 1, '/image/new_w3rdjpg.jpg'),
+(6, 'Lemon W Na3na3', 'nablus', '/image/l1.jpg', '/image/lemoon4.jpg', '/image/lemoon3.jpg', '...', 1, '/image/lemoon2.jpg'),
+(7, '90S', 'nablus', '/image/N33jpg.jpg', '/image/new_90s3rd.jpg', '/image/new_90s1st.jpg', '...', 1, '/image/new_90s2nd.jpg'),
+(8, 'KFC', 'nablus', '/image/k2.jpg', '/image/new_KFC3rd.jpg', '/image/new_KFC2ndjpg.jpg', '...', 1, '/image/new_KFC1st.jpg'),
+(9, 'Hardees', 'nablus', '/image/Hrdees.jpg', NULL, NULL, '...', 1, NULL);
 
 -- --------------------------------------------------------
 
