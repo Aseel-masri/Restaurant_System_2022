@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AdminPageController">
+<AnchorPane prefHeight="500.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AdminPageController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -55,11 +64,14 @@
             </ImageView>
             <ImageView fx:id="menu" fitHeight="50.0" fitWidth="40.0" layoutX="8.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../image/menuIcon.png" />
+                  <Image fx:id="icon" url="@../../../image/menuIcon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="pane1" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="pane1" layoutX="-2.0" prefHeight="500.0" prefWidth="806.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="12.0" prefHeight="359.0" prefWidth="52.0" spacing="5.0">
@@ -101,29 +113,202 @@
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Trending Restaurant">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Generate Report">
+                  <JFXButton fx:id="report" alignment="BASELINE_LEFT" onMouseClicked="#genreort" prefHeight="38.0" prefWidth="179.0" text="Generate Report">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="All Restaurant">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Messages">
+                  <JFXButton fx:id="massageButton" alignment="BASELINE_LEFT" onMouseClicked="#massageclicked" prefHeight="38.0" prefWidth="179.0" text="Messages">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                </children>
             </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="message" layoutX="241.0" layoutY="50.0" prefHeight="426.0" prefWidth="547.0" style="-fx-background-color: #c6ecd9;" visible="false" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <AnchorPane prefHeight="426.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
+               <children>
+                  <Label layoutX="47.0" layoutY="32.0" prefHeight="30.0" prefWidth="126.0" text="Chat">
+                     <font>
+                        <Font name="Bell MT Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/msgICON.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutY="67.0" prefHeight="9.0" prefWidth="200.0" />
+                  <ScrollPane layoutY="72.0" prefHeight="359.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
+                     <content>
+                        <AnchorPane prefHeight="390.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
+                           <children>
+                              <ListView fx:id="listRes2" prefHeight="394.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ListView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <Label layoutX="278.0" layoutY="20.0" prefHeight="40.0" prefWidth="179.0" text="message area" textAlignment="CENTER" textFill="#3a70dc" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="18.0" layoutX="524.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/exit.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="524.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#smallClose" opacity="0.0" prefHeight="18.0" prefWidth="18.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Separator layoutX="200.0" layoutY="106.0" prefHeight="10.0" prefWidth="348.0" />
+            <HBox layoutX="209.0" layoutY="374.0" prefHeight="40.0" prefWidth="332.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#getfile" prefHeight="34.0" prefWidth="34.0">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/plus-icon-transparent-0.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField fx:id="typemsg" prefHeight="34.0" prefWidth="246.0" promptText="type here ...">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Button fx:id="sendBUTTON" mnemonicParsing="false" onMouseClicked="#sendMsg" prefHeight="33.0" prefWidth="52.0" style="-fx-background-color: #ccddff; -fx-border-color: white;" styleClass="resownerloginbtn" stylesheets="@Style.css" text="send">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Bell MT Bold" size="14.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <ImageView fx:id="userimg" fitHeight="30.0" fitWidth="40.0" layoutX="209.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="userlabel" layoutX="249.0" layoutY="79.0" prefHeight="30.0" prefWidth="222.0" textFill="#3a70dc">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ScrollPane fx:id="s" layoutX="200.0" layoutY="116.0" prefHeight="253.0" prefWidth="342.0">
+               <content>
+                  <AnchorPane prefHeight="254.0" prefWidth="324.0">
+                     <children>
+                        <VBox fx:id="vboxmsg" prefHeight="254.0" prefWidth="313.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="reportAnchor" layoutX="160.0" prefHeight="416.0" prefWidth="535.0" style="-fx-background-color: #e6ffe6;" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="507.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/exit.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Button fx:id="close1" layoutX="501.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#smallClose2" opacity="0.0" prefHeight="24.0" prefWidth="35.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="293.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#getReport" prefHeight="44.0" prefWidth="96.0" style="-fx-background-radius: 0; -fx-background-color: #99ff99;" styleClass="shadow" stylesheets="@Style.css" text="Get Report" textFill="#0000cc">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="71.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #99ff99;" text="Restaurant Availabel" textFill="#0000cc">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="13.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="126.0" prefHeight="260.0" prefWidth="154.0">
+              <content>
+                <AnchorPane fx:id="paneRes" minHeight="0.0" minWidth="0.0" prefHeight="259.0" prefWidth="153.0">
+                     <children>
+                        <ListView fx:id="listRes" layoutX="4.0" onMouseClicked="#myListMouusClicked" prefHeight="260.0" prefWidth="154.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <TextField fx:id="text" layoutX="14.0" layoutY="98.0" onKeyReleased="#searchTextKey" prefHeight="24.0" prefWidth="154.0" promptText="type here" style="-fx-background-color: #e6ffe6;" stylesheets="@Style.css">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="40.0" prefWidth="530.0" text="Generate Report" textAlignment="CENTER" textFill="#0000cc">
+               <font>
+                  <Font name="Bookman Old Style Bold Italic" size="28.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" />
+               </padding>
+            </Label>
+            <Button fx:id="search" layoutX="175.0" layoutY="96.0" mnemonicParsing="false" onAction="#onactionsearch" onMouseClicked="#searchhandel" prefHeight="30.0" prefWidth="52.0" style="-fx-background-radius: 50; -fx-background-color: #0000cc;" styleClass="shadow" stylesheets="@Style.css" text="search" textFill="#99ff99">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="ResSelected" alignment="CENTER" layoutX="175.0" layoutY="256.0" prefHeight="30.0" prefWidth="332.0" style="-fx-background-color: #0000cc;" textAlignment="CENTER" textFill="#99ff99">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="129.0" fitWidth="200.0" layoutX="241.0" layoutY="126.0" opacity="0.92" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/reportt.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
