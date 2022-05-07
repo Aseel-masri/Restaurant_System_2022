@@ -16,46 +16,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="489.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AdminPageController">
+
+<AnchorPane prefHeight="494.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.RestaurantOwnerBigPageController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="500.0" fitWidth="810.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../image/admin33.png" />
+            <Image url="@../../../image/ownerRes.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-         <children>
-            <VBox alignment="TOP_CENTER" layoutY="12.0" prefHeight="359.0" prefWidth="52.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/homeicon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/trendingIcon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/reportIcon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/restaurent-icon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/msgICON.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
-         </children></AnchorPane>
-      <AnchorPane prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #808080;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="46.0" prefWidth="802.0" style="-fx-background-color: #808080;">
          <children>
             <ImageView fx:id="exit" fitHeight="30.0" fitWidth="40.0" layoutX="763.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,21 +39,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-         </children></AnchorPane>
-      <AnchorPane fx:id="pane1" layoutX="-2.0" prefHeight="500.0" prefWidth="806.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="contentarea" layoutX="52.0" layoutY="45.0" prefHeight="454.0" prefWidth="747.0" />
-      <AnchorPane prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane1" layoutX="-1.0" prefHeight="500.0" prefWidth="802.0" style="-fx-background-color: #000;" />
+      <AnchorPane fx:id="contentarea" layoutX="62.0" layoutY="55.0" prefHeight="439.0" prefWidth="735.0" />
+      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="52.0" style="-fx-background-color: white;">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="12.0" prefHeight="359.0" prefWidth="52.0" spacing="5.0">
                <children>
                   <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../image/homeicon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../image/trendingIcon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -106,9 +71,9 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pane2" prefHeight="454.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0">
+      <AnchorPane fx:id="pane2" layoutX="52.0" layoutY="46.0" prefHeight="454.0" prefWidth="179.0">
          <children>
-            <VBox layoutX="11.0" prefHeight="454.0" prefWidth="179.0" spacing="8.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="454.0" prefWidth="179.0" spacing="8.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton fx:id="homepage" alignment="BASELINE_LEFT" onAction="#homepage" prefHeight="38.0" prefWidth="179.0" text="Home page">
                      <font>
@@ -117,14 +82,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" onAction="#trending" prefHeight="38.0" prefWidth="179.0" text="Trending Restaurant">
-                     <font>
-                        <Font name="Bell MT Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     <VBox.margin>
+                        <Insets top="13.0" />
+                     </VBox.margin>
                   </JFXButton>
                   <JFXButton fx:id="report" alignment="BASELINE_LEFT" onMouseClicked="#genreort" prefHeight="38.0" prefWidth="179.0" text="Generate Report">
                      <font>
@@ -154,7 +114,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="message" layoutX="241.0" layoutY="50.0" prefHeight="426.0" prefWidth="547.0" style="-fx-background-color: #c6ecd9;" visible="false" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="55.0">
+      <AnchorPane fx:id="message" layoutX="251.0" layoutY="60.0" prefHeight="426.0" prefWidth="547.0" style="-fx-background-color: #c6ecd9;" visible="false" AnchorPane.leftAnchor="245.0">
          <children>
             <AnchorPane prefHeight="426.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
                <children>
@@ -176,7 +136,8 @@
                               <ListView fx:id="listRes2" prefHeight="394.0" prefWidth="200.0" style="-fx-background-color: #ccddff;">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
-                                 </cursor></ListView>
+                                 </cursor>
+                              </ListView>
                            </children>
                         </AnchorPane>
                      </content>
@@ -196,7 +157,8 @@
             <Button layoutX="524.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#smallClose" opacity="0.0" prefHeight="18.0" prefWidth="18.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+            </Button>
             <Separator layoutX="200.0" layoutY="106.0" prefHeight="10.0" prefWidth="348.0" />
             <HBox layoutX="209.0" layoutY="374.0" prefHeight="40.0" prefWidth="332.0">
                <children>
@@ -226,7 +188,8 @@
                      </cursor>
                      <font>
                         <Font name="Bell MT Bold" size="14.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                </children>
             </HBox>
             <ImageView fx:id="userimg" fitHeight="30.0" fitWidth="40.0" layoutX="209.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
@@ -249,7 +212,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </AnchorPane>
-      <AnchorPane fx:id="reportAnchor" layoutX="160.0" prefHeight="416.0" prefWidth="535.0" style="-fx-background-color: #e6ffe6;" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="70.0">
+      <AnchorPane fx:id="reportAnchor" layoutX="170.0" layoutY="10.0" prefHeight="416.0" prefWidth="535.0" style="-fx-background-color: #e6ffe6;" visible="false" AnchorPane.bottomAnchor="14.399999999999977" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="70.0">
          <children>
             <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="507.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -275,18 +238,19 @@
                </font>
             </Label>
             <ScrollPane layoutX="14.0" layoutY="126.0" prefHeight="260.0" prefWidth="154.0">
-              <content>
-                <AnchorPane fx:id="paneRes" minHeight="0.0" minWidth="0.0" prefHeight="259.0" prefWidth="153.0">
+               <content>
+                  <AnchorPane fx:id="paneRes" minHeight="0.0" minWidth="0.0" prefHeight="259.0" prefWidth="153.0">
                      <children>
                         <ListView fx:id="listRes" layoutX="4.0" onMouseClicked="#myListMouusClicked" prefHeight="260.0" prefWidth="154.0" />
                      </children>
                   </AnchorPane>
-              </content>
+               </content>
             </ScrollPane>
             <TextField fx:id="text" layoutX="14.0" layoutY="98.0" onKeyReleased="#searchTextKey" prefHeight="24.0" prefWidth="154.0" promptText="type here" style="-fx-background-color: #e6ffe6;" stylesheets="@Style.css">
                <font>
                   <Font size="11.0" />
-               </font></TextField>
+               </font>
+            </TextField>
             <Label alignment="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="40.0" prefWidth="530.0" text="Generate Report" textAlignment="CENTER" textFill="#0000cc">
                <font>
                   <Font name="Bookman Old Style Bold Italic" size="28.0" />

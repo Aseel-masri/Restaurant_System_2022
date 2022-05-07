@@ -260,21 +260,26 @@ public class AdminPageController implements Initializable {
     void genreort(MouseEvent event) throws IOException {
        message.setVisible(false);
        reportAnchor.setVisible(true);
+       contentarea.getChildren().removeAll();
 
 
     }
     public void massageclicked(MouseEvent mouseEvent) {
         message.setVisible(true);
         reportAnchor.setVisible(false);
+        contentarea.getChildren().removeAll();
+
     }
     public void smallClose(MouseEvent mouseEvent) {
         message.setVisible(false);
         reportAnchor.setVisible(false);
+        contentarea.getChildren().removeAll();
     }
 
     public void smallClose2(MouseEvent mouseEvent) {
         message.setVisible(false);
         reportAnchor.setVisible(false);
+        contentarea.getChildren().removeAll();
         //flage=false;
     }
 
@@ -463,6 +468,8 @@ public class AdminPageController implements Initializable {
     @FXML
     private JFXButton homepage;
     public void allrestaurant(ActionEvent actionEvent) throws IOException {
+        message.setVisible(false);
+        reportAnchor.setVisible(false);
         Parent fxml = FXMLLoader.load(getClass().getResource("AllRestaurant.fxml"));
         contentarea.getChildren().removeAll();
         contentarea.getChildren().setAll(fxml);
@@ -488,6 +495,8 @@ public class AdminPageController implements Initializable {
 
     @FXML
     void trending(ActionEvent event) throws IOException {
+        message.setVisible(false);
+        reportAnchor.setVisible(false);
         FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),pane1);
         fadeTransition1.setFromValue(0.15);
         fadeTransition1.setToValue(0);

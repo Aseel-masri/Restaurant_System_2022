@@ -33,6 +33,7 @@ public class RestaurantOwnerLogController {
 
     @FXML
     void login(MouseEvent event) {
+        boolean f=false;
         ResultSet r=null;
         conection conClass=new conection();
         Connection c=conClass.getConnection();
@@ -46,6 +47,7 @@ public class RestaurantOwnerLogController {
                 mail=r.getString("owner_email");
                 password=r.getString("owner_pass");
                 if (email.getText().equalsIgnoreCase(mail)&&pass.getText().equals(password)){
+                    f=true;
                     Stage stage = (Stage) closebtn.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("RestaurantOwnerPage.fxml"));
                     Scene scene = new Scene(fxmlLoader.load(), 320, 240);
