@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="754.0" style="-fx-background-color: #E6E6E6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AllRestaurant">
+   <children>
+      <HBox layoutX="228.0" layoutY="68.0" prefHeight="380.0" prefWidth="695.0">
+         <children>
+            <ScrollPane fx:id="scroll" prefHeight="381.0" prefWidth="503.0">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="8.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <Label fx:id="RestoName" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="14.0" onMouseClicked="#refresh" prefHeight="50.0" prefWidth="239.0" text="All Restaurants" textFill="RED">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="29.0" />
+         </font>
+         <effect>
+            <DropShadow height="20.27" radius="9.085" spread="0.01" width="18.07">
+               <color>
+                  <Color red="0.9605262875556946" green="0.5647538900375366" blue="0.5647538900375366" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="459.0" layoutY="27.0" onMouseClicked="#refresh" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/refresh.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exit" fitHeight="25.0" fitWidth="27.0" layoutX="715.0" layoutY="8.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/exit.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

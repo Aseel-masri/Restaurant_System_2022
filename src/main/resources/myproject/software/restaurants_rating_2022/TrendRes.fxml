@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="170.0" prefWidth="130.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.TrendResController">
+    <children>
+        <VBox layoutX="14.0" layoutY="10.0" prefHeight="224.0" prefWidth="249.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <HBox prefHeight="36.0" prefWidth="231.0" styleClass="shadow">
+                    <children>
+                        <Label fx:id="RestoName" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="214.0" styleClass="Textshadow" text="Solitaire Resto &amp; Cafe">
+                            <font>
+                                <Font name="Century" size="17.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            <HBox maxHeight="146.0" maxWidth="259.0" prefHeight="146.0" prefWidth="372.0" styleClass="cardPhoto" VBox.vgrow="SOMETIMES">
+               <children>
+                      <ImageView fx:id="RestoIMG" fitHeight="130.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true" styleClass="cardPhoto" HBox.hgrow="ALWAYS">
+                          <image>
+                              <Image url="@../../../image/solitare.jpg" />
+                          </image>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="20.0" />
+                     </HBox.margin>
+                      </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="10.0" right="10.0" />
+               </VBox.margin>
+            </HBox>
+            <ImageView fx:id="starrate" fitHeight="20.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/fivestar.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="70.0" />
+               </VBox.margin>
+            </ImageView>
+            </children>
+        </VBox>
+    </children>
+    <styleClass>
+        <String fx:value="Restaurant" />
+        <String fx:value="shadow" />
+    </styleClass>
+</AnchorPane>

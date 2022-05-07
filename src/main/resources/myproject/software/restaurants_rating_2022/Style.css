@@ -1,4 +1,13 @@
+.cmts {
+  -fx-background-color: #454545;
+  -fx-border: none;
+}
 
+
+.cmts:hover {
+-fx-background-color: #999999;
+
+}
 
 .search-box{
     -fx-background-color: #FFFFFF;

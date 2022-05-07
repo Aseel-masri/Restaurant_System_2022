@@ -15,7 +15,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.image.Image;
@@ -27,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
@@ -52,6 +56,9 @@ public class AdminPageController implements Initializable {
     @FXML VBox itemRes,vboxmsg;
     @FXML HBox box2;
     @FXML TextArea textArea1;
+
+
+
     String x="3";
     String t;
 
@@ -246,7 +253,7 @@ public class AdminPageController implements Initializable {
         }
 
 
-
+        contentarea.getChildren().removeAll();
     }
 
    @FXML
@@ -448,6 +455,63 @@ public class AdminPageController implements Initializable {
 //
 //            }
 //        }
+    }
+
+    /////////////////////////////////--Aseel--////////////////////////////////////////////
+    @FXML
+    private AnchorPane contentarea;
+    @FXML
+    private JFXButton homepage;
+    public void allrestaurant(ActionEvent actionEvent) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("AllRestaurant.fxml"));
+        contentarea.getChildren().removeAll();
+        contentarea.getChildren().setAll(fxml);
+    }
+    public void allrestaurant() throws IOException{
+        pane1.setVisible(true);
+
+        FadeTransition fadeTransition=new FadeTransition(Duration.seconds(0.5),pane1);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+
+        TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(0.5),pane2);
+        translateTransition.setByX(-1);
+        translateTransition.play();
+
+        Parent fxml = FXMLLoader.load(getClass().getResource("AllRestaurant.fxml"));
+        contentarea.getChildren().removeAll();
+        contentarea.getChildren().setAll(fxml);
+
+
+    }
+
+    @FXML
+    void trending(ActionEvent event) throws IOException {
+        FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),pane1);
+        fadeTransition1.setFromValue(0.15);
+        fadeTransition1.setToValue(0);
+        fadeTransition1.play();
+
+        fadeTransition1.setOnFinished(event1 -> {
+            pane1.setVisible(false);
+        });
+
+
+        TranslateTransition translateTransition1=new TranslateTransition(Duration.seconds(0.5),pane2);
+        translateTransition1.setByX(-600);
+        translateTransition1.play();
+        Parent fxml = FXMLLoader.load(getClass().getResource("Trending.fxml"));
+        contentarea.getChildren().removeAll();
+        contentarea.getChildren().setAll(fxml);
+    }
+    @FXML
+    void homepage(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AdminPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) homepage.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 

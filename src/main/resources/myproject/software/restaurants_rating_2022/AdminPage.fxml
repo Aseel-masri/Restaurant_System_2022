@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AdminPageController">
+<AnchorPane prefHeight="500.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.AdminPageController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -72,6 +72,7 @@
             </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="pane1" layoutX="-2.0" prefHeight="500.0" prefWidth="806.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="contentarea" layoutX="52.0" layoutY="45.0" prefHeight="465.0" prefWidth="758.0" />
       <AnchorPane prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="12.0" prefHeight="359.0" prefWidth="52.0" spacing="5.0">
@@ -109,7 +110,7 @@
          <children>
             <VBox layoutX="11.0" prefHeight="454.0" prefWidth="179.0" spacing="8.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Home page">
+                  <JFXButton fx:id="homepage" alignment="BASELINE_LEFT" onAction="#homepage" prefHeight="38.0" prefWidth="179.0" text="Home page">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
@@ -117,7 +118,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Trending Restaurant">
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#trending" prefHeight="38.0" prefWidth="179.0" text="Trending Restaurant">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>
@@ -133,7 +134,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="All Restaurant">
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#allrestaurant" prefHeight="38.0" prefWidth="179.0" text="All Restaurant">
                      <font>
                         <Font name="Bell MT Bold" size="15.0" />
                      </font>

@@ -6,7 +6,15 @@ public class Restaurant {
     String imgSrc;
     int id;
 
+    public void setRest_rate(String rest_rate) {
+        this.rest_rate = rest_rate;
+    }
 
+    public String getRest_rate() {
+        return rest_rate;
+    }
+
+    private String rest_rate;
     public Restaurant(String name, String color, String imgSrc,int id) {
         this.name = name;
         this.id=id;
