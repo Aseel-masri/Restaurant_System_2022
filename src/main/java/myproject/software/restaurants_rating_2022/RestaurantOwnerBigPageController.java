@@ -56,7 +56,7 @@ public class RestaurantOwnerBigPageController implements Initializable {
 
     String x="3";
     String t;
-
+    int n = 0;
     ObservableList<String> names = FXCollections.observableArrayList();
     ObservableList<String> names2 = FXCollections.observableArrayList();
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -64,6 +64,7 @@ public class RestaurantOwnerBigPageController implements Initializable {
     ObservableList <Integer> dataid = FXCollections.observableArrayList();
     ObservableList <Integer> ownerIDMsg = FXCollections.observableArrayList();
     ObservableList<String> MSGINFO = FXCollections.observableArrayList();
+    ObservableList <String> test = FXCollections.observableArrayList();
 
     @FXML ListView<String>  listRes=new ListView<>(names);
     @FXML  Label ResSelected,userlabel;
@@ -82,23 +83,57 @@ public class RestaurantOwnerBigPageController implements Initializable {
         pane1.setVisible(false);
         RestaurantOwnerLogController res =new RestaurantOwnerLogController();
         int ownerID=1;
-
+           String ownerEMAIL= res.EmailOwner;
 /* ***************** add the name of restaurants into list by ownerID     */
+        String mira="mirajamous100@gmail.com";
+
+        String em = null;
         try {
             conection conClass=new conection();
             Connection c=conClass.getConnection();
             Statement  s = c.createStatement();
-            String sql="select res_name from restaurants where owner_id=2";
-            ResultSet r=s.executeQuery(sql);
+            String sql1= "select * from restaurants_owners ";
+            ResultSet r=s.executeQuery(sql1);
+            while(r.next()) {
+                 em=r.getString("owner_email");
+                if(em.equals(ownerEMAIL)){
+                    n=r.getInt("owner_id");
+                }
+                else{
 
-            while (r.next()) {
-                String ss=r.getString("res_name");
-                names.add(ss);
-                listRes.setItems(data);
-                listRes.setCellFactory(ComboBoxListCell.forListView(names));
-                listRes.setItems(names);
+
+                }
+                }
+//            System.out.println(em);
+//            System.out.println(n);
+            int n2;
+            String na = null;
+            conection conClass22=new conection();
+            Connection c22=conClass22.getConnection();
+            Statement  s22 = c22.createStatement();
+            String sql= "select * from restaurants";
+            ResultSet r22=s22.executeQuery(sql);
+            while(r22.next()){
+
+             n2=r22.getInt("owner_id");
+             na=r22.getString("res_name");
+             if(n2==n){
+                 test.add(na);
+                // listRes.setCellFactory(ComboBoxListCell.forListView(test));
+                 //listRes.setItems(test);
+             }
+
 
             }
+
+            for(int g=0;g<test.size();g++){
+                listRes.getItems().add(test.get(g));
+            }
+
+                
+//            listRes.setItems(data);
+//            listRes.setCellFactory(ComboBoxListCell.forListView(names));
+//            listRes.setItems(names);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -160,27 +195,26 @@ public class RestaurantOwnerBigPageController implements Initializable {
         /* ***************  restaurant owner data base for messages page   *************** */
         int id;
         try {
-            conection conClass2 = new conection();
-            Connection c = conClass2.getConnection();
-            Statement s2 = c.createStatement();
-            String sql2 = "select * from admin";
-            ResultSet r2 = s2.executeQuery(sql2);
+            conection conClass21 = new conection();
+            Connection c1 = conClass21.getConnection();
+            Statement s21 = c1.createStatement();
+            String sql21 = "select * from admin";
+            ResultSet r21 = s21.executeQuery(sql21);
 
 
-            while (r2.next()) {
-                String ss2 = r2.getString("admin_id");
-                String email = r2.getString("admin_email");
-                id = r2.getInt("admin_id");
-                names2.add("admin #"+ss2);
+            while (r21.next()) {
+              //  String ss2 = r2.getString("admin_id");
+                String email = r21.getString("admin_email");
+                id = r21.getInt("admin_id");
+              //  names2.add("admin #"+ss2);
                 data2.add(email);
                 dataid.add(id);
-
-                listRes2.setCellFactory(ComboBoxListCell.forListView(names2));
-                listRes2.setItems(names2);
+                listRes2.getItems().add(email);
 
 
             }
 
+            //n= owner id log in
 
             Image image = new Image(getClass().getResourceAsStream("/image/user.png"));
 
@@ -192,35 +226,46 @@ public class RestaurantOwnerBigPageController implements Initializable {
                         vboxmsg.getChildren().clear();
                         ownerIDMsg.clear();
                         MSGINFO.clear();
-//                        try {
-//                            conection conClass3 = new conection();
-//                            Connection c3 = conClass3.getConnection();
-//                            Statement s3 = c3.createStatement();
-//                            String sql3 = "select * from msgs";
-//                            ResultSet r3 = s3.executeQuery(sql3);
-//
-//                            while (r3.next()) {
-//                                String mmm = r3.getString("msg_info");
-//                                int in = r3.getInt("owner_id");
-//                                ownerIDMsg.add(in);
-//                                MSGINFO.add(mmm);
-//                            }
-//                        } catch (SQLException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//
-//                        int idd = 0;
-//
-//                        for (int i = 0; i < names2.size(); i++) {
-//
-//                            if (new_val2 == names2.get(i)) {
-//                                userimg.setImage(image);
-//                                userlabel.setText(data2.get(i));
-//                                idd = dataid.get(i);
-//                            }
-//
-//
-//                        }
+                        try {
+                            conection conClass3 = new conection();
+                            Connection c3 = conClass3.getConnection();
+                            Statement s3 = c3.createStatement();
+                            String sql3 = "select * from msgs";
+                            ResultSet r3 = s3.executeQuery(sql3);
+
+                            while (r3.next()) {
+
+                                int in = r3.getInt("owner_id");
+
+                                    String mmm = r3.getString("msg_info");
+                                    ownerIDMsg.add(in);
+                                    MSGINFO.add(mmm);
+                            }
+                            for(int p=0 ;p<ownerIDMsg.size();p++){
+                                if(ownerIDMsg.get(p)==n){
+                                    String w = MSGINFO.get(p);
+                                    Label k = new Label();
+                                    k.setText(w);
+                                    vboxmsg.getChildren().add(k);
+
+                                }
+                            }
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        int idd = 0;
+
+                        for (int i = 0; i < data2.size(); i++) {
+
+                            if (new_val2 == data2.get(i)) {
+                                userimg.setImage(image);
+                                userlabel.setText(data2.get(i));
+                                idd = dataid.get(i);
+                            }
+
+
+                        }
 //                        for (int g = 0; g < ownerIDMsg.size(); g++) {
 //                            if (idd == ownerIDMsg.get(g)) {
 //                                String w = MSGINFO.get(g);
@@ -231,8 +276,8 @@ public class RestaurantOwnerBigPageController implements Initializable {
 //                            }
 //
 //                        }
-//
-//
+
+
                     });
 
 

@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="494.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.RestaurantOwnerBigPageController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="810.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
@@ -232,7 +231,7 @@
                   <Font name="Berlin Sans FB Demi Bold" size="15.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="71.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #99ff99;" text="Restaurant Availabel" textFill="#0000cc">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="71.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #99ff99;" text="Your Retaurants" textFill="#0000cc">
                <font>
                   <Font name="Bookman Old Style Italic" size="13.0" />
                </font>

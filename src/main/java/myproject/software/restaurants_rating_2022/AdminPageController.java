@@ -69,8 +69,8 @@ public class AdminPageController implements Initializable {
     ObservableList <Integer> dataid = FXCollections.observableArrayList();
     ObservableList <Integer> ownerIDMsg = FXCollections.observableArrayList();
     ObservableList<String> MSGINFO = FXCollections.observableArrayList();
-    
-
+    ObservableList <Integer> testid = FXCollections.observableArrayList();
+    ObservableList<String> testname = FXCollections.observableArrayList();
 
     @FXML ListView<String>  listRes=new ListView<>(names);
     @FXML  Label ResSelected,userlabel;
@@ -200,10 +200,37 @@ public class AdminPageController implements Initializable {
                     (ObservableValue<? extends String> ov, String old_val,
                      String new_val2) -> {
                         flage=false;
+                        int mid;
+                        String str;
+                        int fid = 0;
                         vboxmsg.getChildren().clear();
                         ownerIDMsg.clear();
                         MSGINFO.clear();
                         try {
+                            conection conClassq=new conection();
+                            Connection cq=conClassq.getConnection();
+                            Statement  sq = cq.createStatement();
+                            String sqlq="select * from restaurants_owners";
+                            ResultSet rq=sq.executeQuery(sqlq);
+                            while (rq.next()) {
+                                mid=rq.getInt("owner_id");
+                                str=rq.getString("owner_name");
+                                testid.add(mid);
+                                testname.add(str);
+                              //  String mmm=rq.getString("msg_info");
+                              //  int in=rq.getInt("owner_id");
+                              //  ownerIDMsg.add(in);
+                              //  MSGINFO.add(mmm);
+                            }
+                            for(int i=0;i< testid.size();i++){
+                                if(testname.get(i).equals(new_val2)){
+                                    fid=testid.get(i);
+                                }
+                            }
+
+
+
+
                             conection conClass3=new conection();
                             Connection c3=conClass3.getConnection();
                             Statement  s3 = c3.createStatement();
@@ -212,9 +239,14 @@ public class AdminPageController implements Initializable {
 
                             while (r3.next()) {
                                 String mmm=r3.getString("msg_info");
+
                                 int in=r3.getInt("owner_id");
-                                ownerIDMsg.add(in);
-                                MSGINFO.add(mmm);
+                                if(in==fid){
+                                    ownerIDMsg.add(in);
+                                    MSGINFO.add(mmm);
+                                }
+
+
                             }
                         } catch (SQLException e) {
                             throw new RuntimeException(e);
@@ -232,8 +264,8 @@ public class AdminPageController implements Initializable {
 
 
                }
-                        for(int g=0;g<ownerIDMsg.size();g++){
-                            if(idd==ownerIDMsg.get(g)){
+                        for(int g=0;g< MSGINFO.size();g++){
+                           // if(idd==ownerIDMsg.get(g)){
                                 String w=MSGINFO.get(g);
                                 Label k=new Label();
                                 k.setText(w);
@@ -241,7 +273,7 @@ public class AdminPageController implements Initializable {
 
                             }
 
-                        }
+
 
 
 

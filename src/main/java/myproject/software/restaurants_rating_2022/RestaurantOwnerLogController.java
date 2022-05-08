@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class RestaurantOwnerLogController {
+    static String EmailOwner;
     @FXML private javafx.scene.control.Button closebtn;
 
     @FXML
@@ -48,13 +49,14 @@ public class RestaurantOwnerLogController {
                 password=r.getString("owner_pass");
                 if (email.getText().equalsIgnoreCase(mail)&&pass.getText().equals(password)){
                     f=true;
+                    EmailOwner=email.getText();
                     Stage stage = (Stage) closebtn.getScene().getWindow();
-                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("RestaurantOwnerPage.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-
+                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("RestaurantOwnerBigPage.fxml"));
+                  //  Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+                    Scene scene = new Scene(fxmlLoader.load());
                     stage.setScene(scene);
 
-                    stage.setHeight(600);
+                    stage.setHeight(500);
                     stage.setWidth(800);
                     stage.show();
                     break;
