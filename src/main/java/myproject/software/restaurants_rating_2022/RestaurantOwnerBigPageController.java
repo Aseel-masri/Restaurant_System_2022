@@ -74,7 +74,7 @@ public class RestaurantOwnerBigPageController implements Initializable {
     @FXML ListView<String>  listRes2=new ListView<>(names2);
     @FXML ListView l2;
     boolean flage=false;
-
+    String eee;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,6 +99,7 @@ public class RestaurantOwnerBigPageController implements Initializable {
                  em=r.getString("owner_email");
                 if(em.equals(ownerEMAIL)){
                     n=r.getInt("owner_id");
+                    eee=r.getString("owner_name");
                 }
                 else{
 
@@ -401,41 +402,39 @@ public class RestaurantOwnerBigPageController implements Initializable {
             int finalid=0;
             // Separator sep=new Separator();
 
-            for(int k=0;k<data2.size();k++){
-                if(ownerlabel==data2.get(k)){
+            for(int k=0;k<ownerIDMsg.size();k++){
+                if(n==ownerIDMsg.get(k)) {
 
-                    msg=  typemsg.getText();
+                    msg = typemsg.getText();
+                    if (msg.equals("") || msg.equals(" ")) {
 
-                    int id2=dataid.get(k);
-                    conection conClass2=new conection();
-                    Connection c2=conClass2.getConnection();
-                    Statement st = c2.createStatement();
-                    Statement st2=c2.createStatement();
-                    String sql22="select msg_id from msgs";
-                    ResultSet r3=st2.executeQuery(sql22);
-                    while(r3.next()){
-                        int f=r3.getInt("msg_id");
-                        finalid=f;
+                    } else {
+                      //  int id2 = dataid.get(k);
+                        conection conClass2 = new conection();
+                        Connection c2 = conClass2.getConnection();
+                        Statement st = c2.createStatement();
+                        Statement st2 = c2.createStatement();
+                        String sql22 = "select msg_id from msgs";
+                        ResultSet r3 = st2.executeQuery(sql22);
+                        while (r3.next()) {
+                            int f = r3.getInt("msg_id");
+                            finalid = f;
+                        }
+                        finalid++;
+                        st.executeUpdate("INSERT INTO msgs " + "VALUES ('" + finalid + "','" + n + "',1,'" + eee + ": " + msg + "')");
+                        c2.close();
+                        typemsg.setText("");
+                        Label l = new Label();
+                        l.setText(eee + ": " + msg);
+                        vboxmsg.getChildren().add(l);
+                        flage = true;
+
+
+//
+
+                        count++;
+
                     }
-                    finalid++;
-                    st.executeUpdate("INSERT INTO msgs " + "VALUES ('"+ finalid +"','"+id2+"',1,'"+msg+"')");
-                    c2.close();
-                    typemsg.setText("");
-                    Label l=new Label();
-
-                    l.setText(msg);
-                    vboxmsg.getChildren().add(l);
-                    flage=true;
-
-
-//                   Alert a2 = new Alert(Alert.AlertType.NONE);
-//                   a2.setAlertType(Alert.AlertType.CONFIRMATION);
-//                   a2.setHeaderText("send sucsses");
-//                   a2.show();
-
-
-                    count++;
-
                 }
             }
 

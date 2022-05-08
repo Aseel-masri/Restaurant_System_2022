@@ -6,7 +6,7 @@ public class conection {
     public  Connection getConnection(){
 
 
-        String dbName="restaurant_rating_review_system";
+        String dbName="rrr";
         String userName="root";
         String password="";
 

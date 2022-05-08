@@ -396,7 +396,7 @@ public class AdminPageController implements Initializable {
     @FXML TextField typemsg;
     @FXML ScrollPane s;
     Alert a2 = new Alert(Alert.AlertType.NONE);
-    String msg;
+    String msg,msgad;
     @FXML Button sendBUTTON;
 
     public void sendMsg(MouseEvent mouseEvent) throws SQLException {
@@ -435,30 +435,34 @@ public class AdminPageController implements Initializable {
            // Separator sep=new Separator();
 
            for(int k=0;k<data2.size();k++){
-               if(ownerlabel==data2.get(k)){
+               if(ownerlabel==data2.get(k)) {
 
-                   msg=  typemsg.getText();
+                   msg = typemsg.getText();
+                   if (msg.equals("") || msg.equals(" ")) {
 
-                   int id2=dataid.get(k);
-                   conection conClass2=new conection();
-                   Connection c2=conClass2.getConnection();
-                   Statement st = c2.createStatement();
-                   Statement st2=c2.createStatement();
-                   String sql22="select msg_id from msgs";
-                   ResultSet r3=st2.executeQuery(sql22);
-                   while(r3.next()){
-                       int f=r3.getInt("msg_id");
-                       finalid=f;
-                   }
-                   finalid++;
-                   st.executeUpdate("INSERT INTO msgs " + "VALUES ('"+ finalid +"','"+id2+"',1,'"+msg+"')");
-                   c2.close();
-                   typemsg.setText("");
-                   Label l=new Label();
+                   } else {
 
-                   l.setText(msg);
-                   vboxmsg.getChildren().add(l);
-                   flage=true;
+                       int id2 = dataid.get(k);
+                       conection conClass2 = new conection();
+                       Connection c2 = conClass2.getConnection();
+                       Statement st = c2.createStatement();
+                       Statement st2 = c2.createStatement();
+                       String sql22 = "select msg_id from msgs";
+                       ResultSet r3 = st2.executeQuery(sql22);
+                       while (r3.next()) {
+                           int f = r3.getInt("msg_id");
+                           finalid = f;
+                       }
+                       finalid++;
+                       msgad="admin: "+msg;
+                       st.executeUpdate("INSERT INTO msgs " + "VALUES ('" + finalid + "','" + id2 + "',1,'" + msgad+ "')");
+                       c2.close();
+                       typemsg.setText("");
+                       Label l = new Label();
+
+                       l.setText("admin: "+msg);
+                       vboxmsg.getChildren().add(l);
+                       flage = true;
 
 
 //                   Alert a2 = new Alert(Alert.AlertType.NONE);
@@ -467,8 +471,9 @@ public class AdminPageController implements Initializable {
 //                   a2.show();
 
 
-                   count++;
+                       count++;
 
+                   }
                }
            }
 
