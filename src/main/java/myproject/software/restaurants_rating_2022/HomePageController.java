@@ -1,12 +1,12 @@
 package myproject.software.restaurants_rating_2022;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -77,10 +77,24 @@ public class HomePageController implements Initializable {
     private AnchorPane rest_Pane;
     @FXML
     private Button bk_btn;
+    @FXML
+    private Button bk_btn1;
+
+    @FXML
+    private Button Search_btn;
+
+    @FXML
+    private TextField write_rest_name_city;
 
     @FXML
     private Button ViewRestPage;
     @FXML private javafx.scene.control.Button closebtn;
+
+    @FXML
+    private AnchorPane searchPane;
+
+    @FXML
+    private GridPane grid4;
     @FXML
     void closepage(MouseEvent event) {
         Stage stage = (Stage) closebtn.getScene().getWindow();
@@ -88,14 +102,91 @@ public class HomePageController implements Initializable {
         stage.close();
 
     }
+    ///////////new////////
     @FXML
-     void back_btn(MouseEvent event)throws IOException{
+    private void search(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
+        grid4.getChildren().clear();
+        int flag = 0;// not found
+        int flag2=0;// not found2
+        if (write_rest_name_city.getText().isEmpty()==true) {
+            restaurants.clear();
+            Alert a=new Alert(Alert.AlertType.NONE);
+            a.setAlertType(Alert.AlertType.ERROR);
+            a.setHeaderText("please fill the search bar");
+            a.show();
+
+        }
+
+        else  {
+            for(int i=0;i<RestNames.size();i++) {
+                if ((RestNames.get(i).equalsIgnoreCase(write_rest_name_city.getText()))) {
+                    flag=1;
+                }
+
+            }
+            for(int i=0;i<RestCity.size();i++) {
+                if ((RestCity.get(i).equalsIgnoreCase(write_rest_name_city.getText()))) {
+                    flag2=1;
+                }
+
+            }
+            if(flag==0&&flag2==0){//not found
+                restaurants.clear();
+                Alert a=new Alert(Alert.AlertType.NONE);
+                a.setAlertType(Alert.AlertType.ERROR);
+                a.setHeaderText("No results to your search plz check your inputs again !!");
+                a.show();
+            }
+
+
+        }
+
+        restaurants.addAll(searchRest(write_rest_name_city.getText())); //to get filterd data
+
         rest_Pane.setVisible(false);
+        searchPane.setVisible(true);
+
+
+        int coulmn =1;
+        int row = 1;
+
+        for(int i=0;i <restaurants.size() ;i++){
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            RestaurantController restaurantController=fxmlLoader.getController();
+            restaurantController.setData(restaurants.get(i),myListener);
+            grid4.add(anchorPane,coulmn,row);
+            coulmn++;
+            if(coulmn==4){row++; coulmn=1;}
+            grid4.setHgap(10);
+            grid4.setVgap(10);
+
+        }
+
+        restaurants.clear();
+
     }
 
-    Image middle,left,right;
+    static List<String>RestNames=new ArrayList<>();
+    static List<String>RestCity=new ArrayList<>();
+    ///////end new//////////
     @FXML
-     void view(MouseEvent event){
+    void back_btn(MouseEvent event)throws IOException{
+        rest_Pane.setVisible(false);
+    }
+    @FXML
+    void back_btn2(MouseEvent event) {
+        rest_Pane.setVisible(false);
+        searchPane.setVisible(false);
+    }
+
+
+    Image middle,left,right;
+
+
+    @FXML
+    void view(MouseEvent event){
 
         conection conClass=new conection();
         Connection c=conClass.getConnection();
@@ -106,7 +197,7 @@ public class HomePageController implements Initializable {
             while (r.next()){
                 choseenres_name.setText(r.getString("res_name"));
                 choseenres_address.setText(r.getString("res_city"));
-               middle = new Image(getClass().getResourceAsStream(r.getString("middle_image")));
+                middle = new Image(getClass().getResourceAsStream(r.getString("middle_image")));
                 middle_image.setImage(middle);
                 left = new Image(getClass().getResourceAsStream(r.getString("res_image1")));
                 left_image.setImage(left);
@@ -115,18 +206,12 @@ public class HomePageController implements Initializable {
             }
 
 
-
-
-
-
-
-
-        rest_Pane.setVisible(true);
-    } catch (SQLException e) {
+            rest_Pane.setVisible(true);
+        } catch (SQLException e) {
             e.printStackTrace();
         }}
 
-        Image image;
+    Image image;
     private List<Restaurant> restaurants =new  ArrayList<>();
     private List<Comment>Comments=new ArrayList<>();
 
@@ -134,43 +219,76 @@ public class HomePageController implements Initializable {
     private List<Comment>getDataCom(){
         List<Comment>comments=new ArrayList<>();
 
-            for(int i=0;i<10;i++) {
-                Comment comment = new Comment();
-                comment.setAuthorEmail("danaturabi@hotmail.com");
-                comment.setDay_Date("Monday At 1:45:02 am");
-                comment.setText("I like this restaurant because ...");
-                comments.add(comment);
-            }
+        for(int i=0;i<10;i++) {
+            Comment comment = new Comment();
+            comment.setAuthorEmail("danaturabi@hotmail.com");
+            comment.setDay_Date("Monday At 1:45:02 am");
+            comment.setText("I like this restaurant because ...");
+            comments.add(comment);
+        }
 
 
         return comments;
 
 
     }
-    private List<Restaurant> getData() throws SQLException {
+
+    private static List<Restaurant> getData() throws SQLException {
         List<Restaurant>rstaurants=new ArrayList<>();
 
-            Restaurant rstaurant;
+        Restaurant rstaurant;
 
-            rstaurant = new Restaurant();
+        rstaurant = new Restaurant();
         conection conClass=new conection();
         Connection c=conClass.getConnection();
 
-            Statement s=c.createStatement();
-            String sql="select * from restaurants";
+        Statement s=c.createStatement();
+        String sql="select * from restaurants";
         ResultSet r=s.executeQuery(sql);
 
-            while (r.next()) {
-                rstaurant = new Restaurant();
-                rstaurant.setName(r.getString("res_name"));
+        while (r.next()) {
+            rstaurant = new Restaurant();
+            rstaurant.setName(r.getString("res_name"));
+            RestNames.add(r.getString("res_name"));
+            RestCity.add(r.getString("res_city"));
 
-                rstaurant.setImgSrc(r.getString("res_main_image"));
-                rstaurant.setId(Integer.parseInt(r.getString("res_id")));
-                rstaurants.add(rstaurant);
-            }
+            rstaurant.setImgSrc(r.getString("res_main_image"));
+            rstaurant.setId(Integer.parseInt(r.getString("res_id")));
+            rstaurants.add(rstaurant);
+        }
 
         return rstaurants;
     }
+    /////////////new///////////
+    public static List<Restaurant> searchRest(String resValue)throws ClassNotFoundException,SQLException {
+
+        Restaurant rstaurant;
+        rstaurant = new Restaurant();
+        List<Restaurant> Filteredrest = new ArrayList<>();
+        conection conClass = new conection();
+        Connection c = conClass.getConnection();
+        Statement s = c.createStatement();
+        try {
+            String sql = "select * from restaurants where  res_city =  '" + resValue + "' or res_name =  '" + resValue + "' or res_name='"+resValue.toLowerCase()+"' or res_name='"+resValue.toUpperCase()+"' or res_city='"+resValue.toUpperCase()+"' or res_city='"+resValue.toLowerCase()+"'";
+            ResultSet resultSet = s.executeQuery(sql);
+
+            while (resultSet.next()) {
+                rstaurant = new Restaurant();
+                rstaurant.setName(resultSet.getString("res_name"));
+
+                rstaurant.setImgSrc(resultSet.getString("res_main_image"));
+                rstaurant.setId(Integer.parseInt(resultSet.getString("res_id")));
+                Filteredrest.add(rstaurant);
+            }
+
+        } catch (SQLException e) {
+
+
+        }            return Filteredrest;
+
+    }
+    /////////////end new///////////
+
 
     private void setChosenRestoCard(Restaurant restaurant){
 
@@ -195,7 +313,6 @@ public class HomePageController implements Initializable {
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
         List<Comment>commentsList=new ArrayList<>();
-
 
         try{  commentsList.addAll(getDataCom());}catch(Exception e){e.printStackTrace();}
 
@@ -234,7 +351,8 @@ public class HomePageController implements Initializable {
         int row=1;
         int c=1;
         int r=1;
-        try {
+        try{
+
             for(int i=0;i<commentsList.size();i++){
                 FXMLLoader fxmlLoader=new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Comment.fxml"));
@@ -244,21 +362,21 @@ public class HomePageController implements Initializable {
                 grid3.add(anchorPane,c,r);
                 c++;
                 if(c==2){r++;c=1;}
-              //  grid3.setVgap(10);
-             //   grid3.setHgap(10);
+                //  grid3.setVgap(10);
+                //   grid3.setHgap(10);
             }
 
-        for(int i=0;i <NormalRstaurants.size() ;i++){
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
-            AnchorPane anchorPane = fxmlLoader.load();
-            RestaurantController restaurantController=fxmlLoader.getController();
-            restaurantController.setData(NormalRstaurants.get(i),myListener);
-            grid.add(anchorPane,coulmn,row);
-            coulmn++;
-            if(coulmn==4){row++; coulmn=1;}
-            grid.setHgap(10);
-            grid.setVgap(10);
+            for(int i=0;i <NormalRstaurants.size() ;i++){
+                FXMLLoader fxmlLoader=new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                RestaurantController restaurantController=fxmlLoader.getController();
+                restaurantController.setData(NormalRstaurants.get(i),myListener);
+                grid.add(anchorPane,coulmn,row);
+                coulmn++;
+                if(coulmn==4){row++; coulmn=1;}
+                grid.setHgap(10);
+                grid.setVgap(10);
 
             }
             for(int i=0;i < 3;i++){
@@ -274,7 +392,7 @@ public class HomePageController implements Initializable {
                 grid.setVgap(10);
 
 
-        }}catch (IOException e) {
+            }}catch (IOException e) {
             e.printStackTrace();
 
         }
@@ -282,9 +400,9 @@ public class HomePageController implements Initializable {
     @FXML
     void saveRate(ActionEvent event) throws SQLException {
         int id=0;
-      conection c=new conection();
-      Connection connection=c.getConnection();
-      Statement s=connection.createStatement();
+        conection c=new conection();
+        Connection connection=c.getConnection();
+        Statement s=connection.createStatement();
         String sql = "select rate_id from rating";
         ResultSet set = s.executeQuery(sql);
 

@@ -98,9 +98,9 @@
                                     <font>
                                         <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                                     </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </Button>
                             </children>
                             <padding>
@@ -116,7 +116,7 @@
         </VBox>
         <HBox layoutX="386.0" layoutY="12.0" prefHeight="43.0" prefWidth="398.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" styleClass="shadow" stylesheets="@Style.css">
             <children>
-                <TextField alignment="CENTER" prefHeight="34.0" prefWidth="291.0" promptText="Type Your Search" styleClass="transparent" stylesheets="@Style.css">
+                <TextField fx:id="write_rest_name_city" alignment="CENTER" prefHeight="34.0" prefWidth="291.0" promptText="Type Your Search" styleClass="transparent" stylesheets="@Style.css">
                     <HBox.margin>
                         <Insets left="5.0" right="20.0" top="5.0" />
                     </HBox.margin>
@@ -124,7 +124,7 @@
                         <Font name="Cambria" size="16.0" />
                     </font>
                 </TextField>
-                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="73.0" styleClass="search-button" stylesheets="@Style.css" text="Search" textFill="#fcf8f8">
+                <Button fx:id="Search_btn" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="73.0" styleClass="search-button" stylesheets="@Style.css" text="Search" textFill="#fcf8f8">
                     <HBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                     </HBox.margin>
@@ -251,7 +251,7 @@
                 </Separator>
             </children>
         </HBox>
-        <AnchorPane fx:id="rest_Pane" layoutX="372.0" layoutY="-2.0" prefHeight="692.0" prefWidth="832.0" style="-fx-background-color: #BBBBC1;">
+        <AnchorPane fx:id="rest_Pane" layoutX="372.0" layoutY="-2.0" prefHeight="692.0" prefWidth="832.0" style="-fx-background-color: #BBBBC1;" visible="false">
             <children>
                 <VBox layoutX="298.0" prefHeight="94.0" prefWidth="319.0">
                     <children>
@@ -389,31 +389,53 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-            <Label contentDisplay="CENTER" layoutX="355.0" layoutY="282.0" prefHeight="63.0" prefWidth="176.0" text="Rating " textFill="#8e7121">
-               <font>
-                  <Font name="STCaiyun" size="41.0" />
-               </font>
-            </Label>
-            <TextField layoutX="24.0" layoutY="640.0" prefHeight="26.0" prefWidth="654.0" promptText="Type your comment here " />
-            <Button layoutX="351.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveRate" prefHeight="30.0" prefWidth="136.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Save Rates" textFill="WHITE">
-               <font>
-                  <Font name="Book Antiqua" size="14.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="35.0" layoutY="447.0" prefHeight="43.0" prefWidth="136.0" stylesheets="@Style.css" text="Comments" textFill="#8e7121">
-               <font>
-                  <Font name="Berlin Sans FB" size="25.0" />
-               </font>
-            </Label>
-                  <ScrollPane layoutX="23.0" layoutY="482.0" prefHeight="150.0" prefWidth="654.0">
-                      <content>
-                          <GridPane fx:id="grid3" prefHeight="146.0" prefWidth="655.0">
-                              <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              </columnConstraints>
-                          </GridPane>
-                      </content>
-                  </ScrollPane>
+                <Label contentDisplay="CENTER" layoutX="355.0" layoutY="282.0" prefHeight="63.0" prefWidth="176.0" text="Rating " textFill="#8e7121">
+                    <font>
+                        <Font name="STCaiyun" size="41.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="24.0" layoutY="640.0" prefHeight="26.0" prefWidth="654.0" promptText="Type your comment here " />
+                <Button layoutX="351.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveRate" prefHeight="30.0" prefWidth="136.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Save Rates" textFill="WHITE">
+                    <font>
+                        <Font name="Book Antiqua" size="14.0" />
+                    </font>
+                </Button>
+                <Label contentDisplay="CENTER" layoutX="35.0" layoutY="447.0" prefHeight="43.0" prefWidth="136.0" stylesheets="@Style.css" text="Comments" textFill="#8e7121">
+                    <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                    </font>
+                </Label>
+                <ScrollPane layoutX="23.0" layoutY="482.0" prefHeight="150.0" prefWidth="654.0">
+                    <content>
+                        <GridPane fx:id="grid3" prefHeight="146.0" prefWidth="655.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                        </GridPane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="searchPane" layoutX="381.0" layoutY="75.0" prefHeight="601.0" prefWidth="858.0" style="-fx-background-color: BBBBC1; -fx-background-radius: 40;" visible="false">
+            <children>
+                <ScrollPane layoutX="28.0" layoutY="54.0" prefHeight="509.0" prefWidth="796.0">
+                    <content>
+                        <GridPane fx:id="grid4" prefHeight="6.0" prefWidth="18.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                        </GridPane>
+                    </content>
+                </ScrollPane>
+                <Button fx:id="bk_btn1" layoutX="784.0" layoutY="8.0" mnemonicParsing="false" onMousePressed="#back_btn2" prefHeight="10.0" prefWidth="51.0" style="-fx-background-color: none;">
+                    <graphic>
+                        <ImageView fx:id="BK2" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../image/Bk.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
             </children>
         </AnchorPane>
     </children>
