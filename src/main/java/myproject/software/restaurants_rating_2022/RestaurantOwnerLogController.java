@@ -16,6 +16,7 @@ import java.sql.Statement;
 
 public class RestaurantOwnerLogController {
     static String EmailOwner;
+   public static int ownerid;
     @FXML private javafx.scene.control.Button closebtn;
 
     @FXML
@@ -41,12 +42,13 @@ public class RestaurantOwnerLogController {
         String mail = null,password=null;
         try {
             Statement s=c.createStatement();
-            String sql="select owner_email,owner_pass from restaurants_owners where owner_email='"+email.getText()+"'";
+            String sql="select owner_email,owner_pass , owner_id from restaurants_owners where owner_email='"+email.getText()+"'";
             r=s.executeQuery(sql);
 
             while (r.next()){
                 mail=r.getString("owner_email");
                 password=r.getString("owner_pass");
+                ownerid = r.getInt("owner_id");
                 if (email.getText().equalsIgnoreCase(mail)&&pass.getText().equals(password)){
                     f=true;
                     EmailOwner=email.getText();

@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
@@ -306,16 +307,43 @@ public class RestaurantOwnerBigPageController implements Initializable {
     public void genreort(MouseEvent mouseEvent) {
         message.setVisible(false);
         reportAnchor.setVisible(true);
+        contentarea.setVisible(false);
     }
 
-    public void allrestaurant(ActionEvent event) {
+    public void allrestaurant(ActionEvent event) throws Exception {
+        FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),pane1);
+        fadeTransition1.setFromValue(0.15);
+        fadeTransition1.setToValue(0);
+        fadeTransition1.play();
+
+        fadeTransition1.setOnFinished(event1 -> {
+            pane1.setVisible(false);
+        });
+
+
+        TranslateTransition translateTransition1=new TranslateTransition(Duration.seconds(0.5),pane2);
+        translateTransition1.setByX(-600);
+        translateTransition1.play();
         message.setVisible(false);
         reportAnchor.setVisible(false);
+        Parent fxml = FXMLLoader.load(getClass().getResource("AllownerRes.fxml"));
+        contentarea.getChildren().removeAll();
+        contentarea.getChildren().setAll(fxml);
+        contentarea.setVisible(true);
+    }
+    public void allrestaurant() throws Exception {
+        message.setVisible(false);
+        reportAnchor.setVisible(false);
+        Parent fxml = FXMLLoader.load(getClass().getResource("AllownerRes.fxml"));
+        contentarea.getChildren().removeAll();
+        contentarea.getChildren().setAll(fxml);
+        contentarea.setVisible(true);
     }
 
     public void massageclicked(MouseEvent mouseEvent) {
         message.setVisible(true);
         reportAnchor.setVisible(false);
+        contentarea.setVisible(false);
     }
 
     public void smallClose(MouseEvent mouseEvent) {
