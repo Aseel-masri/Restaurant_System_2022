@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,11 +32,15 @@ import java.util.ResourceBundle;
 public class HomePageController implements Initializable {
     public int loggedUser_id;
     ResultSet r=null;
+    ResultSet r1=null;
+    double o=0;
 
     public int choseenres_id;
     @FXML
     private Label choseenres_address;
 
+    @FXML
+    private Rating overallrating;
     @FXML
     private Label choseenres_name;
     @FXML
@@ -174,6 +180,11 @@ public class HomePageController implements Initializable {
     @FXML
     void back_btn(MouseEvent event)throws IOException{
         rest_Pane.setVisible(false);
+        choseenres_id=0;
+        clear_rate.setRating(0);
+        food_rate.setRating(0);
+        price_rate.setRating(0);
+        services_rate.setRating(0);
     }
     @FXML
     void back_btn2(MouseEvent event) {
@@ -183,18 +194,20 @@ public class HomePageController implements Initializable {
 
 
     Image middle,left,right;
-
-
     @FXML
     void view(MouseEvent event){
+
 
         conection conClass=new conection();
         Connection c=conClass.getConnection();
         try {
             Statement s=c.createStatement();
+            Statement s1=c.createStatement();
             String sql="select res_name,res_city,middle_image,res_image1,res_image2 from restaurants where res_id='"+choseenres_id+"'";
             r=s.executeQuery(sql);
+
             while (r.next()){
+                String sql1="select * from rating where res_id='"+choseenres_id+"'";
                 choseenres_name.setText(r.getString("res_name"));
                 choseenres_address.setText(r.getString("res_city"));
                 middle = new Image(getClass().getResourceAsStream(r.getString("middle_image")));
@@ -203,9 +216,15 @@ public class HomePageController implements Initializable {
                 left_image.setImage(left);
                 right = new Image(getClass().getResourceAsStream(r.getString("res_image2")));
                 right_image.setImage(right);
+                ResultSet ss=s1.executeQuery(sql1);
+                while(ss.next()){
+                    if(ss.getInt(2)==loggedUser_id){
+                        clear_rate.setRating(ss.getFloat("Cleanliness_rate"));
+                        food_rate.setRating(ss.getFloat("foodquality_rate"));
+                        services_rate.setRating(ss.getFloat("services_rate"));
+                        price_rate.setRating(ss.getFloat("Priceforservice_rate"));
+                    }}
             }
-
-
             rest_Pane.setVisible(true);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -216,24 +235,32 @@ public class HomePageController implements Initializable {
     private List<Comment>Comments=new ArrayList<>();
 
 
-    private List<Comment>getDataCom(){
+    private List<Comment>getDataCom() throws SQLException {
         List<Comment>comments=new ArrayList<>();
+        conection c=new conection();
+        Connection connection=c.getConnection();
+        Statement s=connection.createStatement();
+        String sql="select * from comments";
+        ResultSet set=s.executeQuery(sql);
+        Statement s1=connection.createStatement();
 
-        for(int i=0;i<10;i++) {
+
+        while (set.next()){
             Comment comment = new Comment();
-            comment.setAuthorEmail("danaturabi@hotmail.com");
-            comment.setDay_Date("Monday At 1:45:02 am");
-            comment.setText("I like this restaurant because ...");
+            String sql1="select * from user where user_id='"+set.getInt("user_id")+"'";
+            ResultSet set1= s1.executeQuery(sql1);
+            while (set1.next()){
+                comment.setAuthorEmail(set1.getString("user_name"));
+            }
+
+            comment.setDay_Date(set.getString("c_date"));
+            comment.setText(set.getString("c_info"));
             comments.add(comment);
         }
-
-
         return comments;
-
-
     }
 
-    private static List<Restaurant> getData() throws SQLException {
+    private List<Restaurant> getData() throws SQLException {
         List<Restaurant>rstaurants=new ArrayList<>();
 
         Restaurant rstaurant;
@@ -243,17 +270,22 @@ public class HomePageController implements Initializable {
         Connection c=conClass.getConnection();
 
         Statement s=c.createStatement();
+        Statement s1=c.createStatement();
         String sql="select * from restaurants";
         ResultSet r=s.executeQuery(sql);
 
         while (r.next()) {
             rstaurant = new Restaurant();
             rstaurant.setName(r.getString("res_name"));
-            RestNames.add(r.getString("res_name"));
-            RestCity.add(r.getString("res_city"));
 
             rstaurant.setImgSrc(r.getString("res_main_image"));
             rstaurant.setId(Integer.parseInt(r.getString("res_id")));
+            String sql1="select avg_rate from rating where res_id='"+rstaurant.getId()+"'";
+            ResultSet r1=s1.executeQuery(sql1);
+            while(r1.next()){
+                o=r1.getFloat("avg_rate");rstaurant.setRate(o);
+            }
+
             rstaurants.add(rstaurant);
         }
 
@@ -292,14 +324,18 @@ public class HomePageController implements Initializable {
 
     private void setChosenRestoCard(Restaurant restaurant){
 
-        RestoNameLabel.setText(restaurant.getName());
-        image = new Image(getClass().getResourceAsStream(restaurant.getImgSrc()));
-        RestoImage.setImage(image);
-        choseenres_id=restaurant.getId();
-        //Location from database
-        //OverALL Rate from database
 
-    }
+            RestoNameLabel.setText(restaurant.getName());
+            image = new Image(getClass().getResourceAsStream(restaurant.getImgSrc()));
+            RestoImage.setImage(image);
+            choseenres_id=restaurant.getId();
+            overallrating.setRating(restaurant.getRate());
+            //Location from database
+            //OverALL Rate from database
+
+        }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FXMLLoader fxmlLoader1=new FXMLLoader();
@@ -308,11 +344,12 @@ public class HomePageController implements Initializable {
         loggedUser_id=l.user_id;
 
 
+        overallrating.setRating(0.0);
 
-        //restaurants.addAll(getData());
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
         List<Comment>commentsList=new ArrayList<>();
+
 
         try{  commentsList.addAll(getDataCom());}catch(Exception e){e.printStackTrace();}
 
@@ -366,6 +403,7 @@ public class HomePageController implements Initializable {
                 //   grid3.setHgap(10);
             }
 
+            Comments.addAll(getDataCom());
             for(int i=0;i <NormalRstaurants.size() ;i++){
                 FXMLLoader fxmlLoader=new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
@@ -379,6 +417,7 @@ public class HomePageController implements Initializable {
                 grid.setVgap(10);
 
             }
+
             for(int i=0;i < 3;i++){
                 FXMLLoader fxmlLoader=new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
@@ -396,8 +435,10 @@ public class HomePageController implements Initializable {
             e.printStackTrace();
 
         }
-    }
-    @FXML
+     catch (SQLException e) {
+            e.printStackTrace();
+        } }
+        @FXML
     void saveRate(ActionEvent event) throws SQLException {
         int id=0;
         conection c=new conection();
@@ -413,7 +454,82 @@ public class HomePageController implements Initializable {
         String sql1="insert into rating values('"+id+"','"+this.loggedUser_id+"','"+this.choseenres_id+"','"+services_rate.getRating()+"','"+food_rate.getRating()+"','"+price_rate.getRating()+"','"+clear_rate.getRating()+"','"+avg+"')";
         s.execute(sql1);
         connection.close();
+        Alert a=new Alert(Alert.AlertType.NONE);
+        a.setAlertType(Alert.AlertType.INFORMATION);
+        a.setHeaderText("rating saved successfully");
+        a.show();
 
 
     }
+    @FXML
+    void logout(MouseEvent event) {
+        if(loggedUser_id==0){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText("you are already logged out.");
+            a.show();
+        }
+        else {
+            loggedUser_id = 0;
+
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText("you logged out from your account and you are now in the guest account");
+            a.show();
+        }
+    }
+    @FXML
+    void login(MouseEvent event) throws IOException {
+        if(loggedUser_id==0){
+            Stage stage = (Stage) closebtn.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("bigLogIn.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+
+            stage.setScene(scene);
+
+            stage.setHeight(481);
+            stage.setWidth(730);
+            stage.show();
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setHeaderText("you are already logged in.");
+            a.show();
+        }
+
+    }
+    @FXML
+    private TextField comment;
+    @FXML
+    void addComment(ActionEvent event) throws IOException, SQLException {
+
+        int coulmn=1;
+        int row=1;
+        int cc=1;
+        int r=1;
+        Comment c=new Comment();
+        c.setAuthorEmail("baraa");
+        c.setDay_Date("5/5/2022");
+        c.setText("bnaiodfhqahfdhfqh");
+
+        Comments.add(c);
+
+        grid3.getChildren().clear();
+        for(int i=0;i<Comments.size();i++){
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("Comment.fxml"));
+            AnchorPane anchorPane=fxmlLoader.load();
+            CommentController commentController=fxmlLoader.getController();
+            commentController.setDate(Comments.get(i));
+
+            grid3.add(anchorPane,cc,r);
+            cc++;grid3.setAlignment(Pos.BASELINE_LEFT);
+
+            if(cc==2){r++;cc=1;}
+            //  grid3.setVgap(10);
+            //   grid3.setHgap(10);
+        }
+
+
+
+    }
+
 }

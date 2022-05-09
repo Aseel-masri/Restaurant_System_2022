@@ -82,7 +82,7 @@
                                         <Insets left="20.0" right="20.0" top="15.0" />
                                     </HBox.margin>
                                 </Label>
-                                <Rating disable="true" prefHeight="40.0" prefWidth="235.0" rating="4.0">
+                                <Rating fx:id="overallrating" disable="true" prefHeight="40.0" prefWidth="235.0" rating="4.0">
                                     <HBox.margin>
                                         <Insets top="10.0" />
                                     </HBox.margin>
@@ -144,21 +144,27 @@
                         <Insets top="5.0" />
                     </HBox.margin>
                 </ImageView>
-                <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="26.0" fitWidth="30.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../image/person .png" />
                     </image>
                     <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="25.0" fitWidth="26.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../image/Rename.png" />
                     </image>
                     <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
                 <Button fx:id="closebtn" mnemonicParsing="false" onMouseClicked="#closepage" prefHeight="21.0" prefWidth="20.0" style="-fx-background-color: none;">
                     <padding>
@@ -251,7 +257,7 @@
                 </Separator>
             </children>
         </HBox>
-        <AnchorPane fx:id="rest_Pane" layoutX="372.0" layoutY="-2.0" prefHeight="692.0" prefWidth="832.0" style="-fx-background-color: #BBBBC1;" visible="false">
+        <AnchorPane fx:id="rest_Pane" layoutX="372.0" layoutY="-2.0" prefHeight="692.0" prefWidth="832.0" style="-fx-background-color: #BBBBC1;">
             <children>
                 <VBox layoutX="298.0" prefHeight="94.0" prefWidth="319.0">
                     <children>
@@ -379,10 +385,13 @@
                         </VBox>
                     </children>
                 </HBox>
-                <Button layoutX="693.0" layoutY="572.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Add Comment " textFill="WHITE">
+                <Button layoutX="693.0" layoutY="572.0" mnemonicParsing="false" onAction="#addComment" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="Add Comment " textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <Button layoutX="693.0" layoutY="610.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="127.0" styleClass="viewRestaurantPage-button" stylesheets="@Style.css" text="View Menu" textFill="WHITE">
                     <font>

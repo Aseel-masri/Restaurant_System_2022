@@ -17,6 +17,8 @@ public class RestaurantController {
         private Label res_id;
         @FXML
         private Label RestoName;
+    @FXML
+    private Label res_rate;
         @FXML
         private void click(ActionEvent actionEvent){
             myListener.onClickListener(restaurant);
@@ -31,5 +33,6 @@ public class RestaurantController {
             Image image=new Image(getClass().getResourceAsStream(restaurant.getImgSrc()));
             RestoIMG.setImage(image);
             res_id.setText(String.valueOf(restaurant.getId()));
+            res_rate.setText(String.valueOf(restaurant.getRate()));
         }
     }

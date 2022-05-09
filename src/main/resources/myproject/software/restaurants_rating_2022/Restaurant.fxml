@@ -60,6 +60,7 @@
             </children>
         </VBox>
       <Label fx:id="res_id" prefHeight="19.0" prefWidth="5.0" visible="false" />
+        <Label fx:id="res_rate" visible="false" />
     </children>
     <styleClass>
         <String fx:value="Restaurant" />

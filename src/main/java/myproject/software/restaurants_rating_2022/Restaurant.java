@@ -5,6 +5,14 @@ public class Restaurant {
 
     String imgSrc;
     int id;
+    double rate=0.0;
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
 
     public void setRest_rate(String rest_rate) {
         this.rest_rate = rest_rate;
