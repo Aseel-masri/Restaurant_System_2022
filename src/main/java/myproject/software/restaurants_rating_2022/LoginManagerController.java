@@ -3,6 +3,7 @@ package myproject.software.restaurants_rating_2022;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -62,6 +63,11 @@ public class LoginManagerController {
                 stage.show();
 
 
+            }
+            else{
+                Alert a=new Alert(Alert.AlertType.ERROR);
+                a.setHeaderText("wrong email or password please try again");
+                a.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();

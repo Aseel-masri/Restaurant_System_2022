@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2022 at 01:35 PM
+-- Generation Time: May 09, 2022 at 08:35 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.23
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,6 +55,13 @@ CREATE TABLE `comments` (
   `c_date` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`c_id`, `user_id`, `res_id`, `c_info`, `c_date`) VALUES
+(4, 2, 7, 'i love 90s', 'Mon May 09 16:36:44 BST 2022');
+
 -- --------------------------------------------------------
 
 --
@@ -92,8 +99,14 @@ CREATE TABLE `rating` (
 INSERT INTO `rating` (`rate_id`, `user-id`, `res_id`, `services_rate`, `foodquality_rate`, `Priceforservice_rate`, `Cleanliness_rate`, `avg_rate`) VALUES
 (1, 3, 6, 3, 3, 3, 3, 3),
 (2, 1, 1, 5, 4, 3, 4, 4),
-(3, 1, 2, 5, 5, 5, 5, 5),
-(7, 2, 5, 5, 5, 5, 5, 5);
+(7, 2, 5, 5, 5, 5, 5, 5),
+(8, 1, 7, 2, 2, 2, 2, 2),
+(9, 1, 10, 5, 5, 5, 5, 3.76852),
+(10, 1, 8, 2, 2, 2, 2, 2.96693),
+(11, 1, 4, 2, 2, 2, 2, 2),
+(12, 2, 4, 4, 4, 4, 4, 3),
+(13, 3, 4, 4, 4, 4, 4, 3),
+(14, 4, 4, 5, 5, 5, 5, 3.25);
 
 -- --------------------------------------------------------
 
@@ -118,15 +131,15 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`res_id`, `res_name`, `res_city`, `res_main_image`, `res_image1`, `res_image2`, `res_menu`, `owner_id`, `middle_image`) VALUES
-(1, 'Dominos', 'nablus', '/image/d2.png', NULL, NULL, '...', 1, NULL),
-(2, 'Treio', 'nablus', '/image/T100.png', NULL, NULL, '...', 1, NULL),
-(3, 'w', 'nablus', '/image/w1.jpg', NULL, NULL, '...', 1, NULL),
-(4, 'Solitaire', 'nablus', '/image/solitare.jpg', NULL, NULL, '...', 1, NULL),
-(5, 'ward', 'nablus', '/image/ward.jpg', '/image/new_ward1stjpg.jpg', '/image/new_ward2nd.jpg', '...', 1, '/image/new_w3rdjpg.jpg'),
-(6, 'Lemon W Na3na3', 'nablus', '/image/l1.jpg', '/image/lemoon4.jpg', '/image/lemoon3.jpg', '...', 1, '/image/lemoon2.jpg'),
-(7, '90S', 'nablus', '/image/N33jpg.jpg', '/image/new_90s3rd.jpg', '/image/new_90s1st.jpg', '...', 1, '/image/new_90s2nd.jpg'),
-(8, 'KFC', 'nablus', '/image/k2.jpg', '/image/new_KFC3rd.jpg', '/image/new_KFC2ndjpg.jpg', '...', 1, '/image/new_KFC1st.jpg'),
-(9, 'Hardees', 'nablus', '/image/Hrdees.jpg', NULL, NULL, '...', 1, NULL),
+(1, 'Dominos', 'nablus', '/image/d2.png', '/image/new_domenos1st.jpg', '/image/new_domenos2nd.jpg', '/image/5.jpg', 1, '/image/new_dominos3rd.jpg'),
+(2, 'Treio', 'nablus', '/image/T100.png', '/image/new_trio2nd.jpg', '/image/new_Trio1st.jpg', '/image/6.jpg', 1, '/image/new_trio3rd.jpg'),
+(3, 'w', 'nablus', '/image/w1.jpg', '/image/new_w2nd.jpg', '/image/new_w1st.jpg', '/image/4.jpg', 1, '/image/new_w3rdjpg.jpg'),
+(4, 'Solitaire', 'nablus', '/image/solitare.jpg', '/image/new_solitaire2nd.jpg', '/image/new_solitaire3rd.jpg', '/image/3.jpg', 1, '/image/new_solitaire1st.jpg'),
+(5, 'ward', 'nablus', '/image/ward.jpg', '/image/new_ward1stjpg.jpg', '/image/new_ward2nd.jpg', '/image/11.jpg', 1, '/image/new_w3rdjpg.jpg'),
+(6, 'Lemon W Na3na3', 'nablus', '/image/l1.jpg', '/image/lemoon4.jpg', '/image/lemoon3.jpg', '/image/8.jpg', 1, '/image/lemoon2.jpg'),
+(7, '90S', 'nablus', '/image/N33jpg.jpg', '/image/new_90s3rd.jpg', '/image/new_90s1st.jpg', '/image/9.jpg', 1, '/image/new_90s2nd.jpg'),
+(8, 'KFC', 'nablus', '/image/k2.jpg', '/image/new_KFC3rd.jpg', '/image/new_KFC2ndjpg.jpg', '/image/10.jpg', 1, '/image/new_KFC1st.jpg'),
+(9, 'Hardees', 'nablus', '/image/Hrdees.jpg', '/image/new_hardees1st.jpg', '/image/new_hardees2nd.jpg', '/image/11.jpg', 1, '/image/new_Hardees3rd.jpg'),
 (10, 'BFC', 'Nablus', '/image/BFC.jpg', '/image/BFC1.jpg', '/image/BFC2.jpg', '/image/BFCM.jpg', 1, '/image/BFC3.jpg');
 
 -- --------------------------------------------------------
@@ -172,7 +185,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_city`, `user_pass`) VALUES
 (1, 'baraa', 'baraa5hfg@gmail.com', 'Nablus', '12344321'),
 (2, 'ahmad', 'ahmad@gmail.com', 'nablus', '1234'),
-(3, 'aseel', 'aseel', 'nablus', '123');
+(3, 'aseel', 'aseel', 'nablus', '123'),
+(4, 'kenana', 'kenana@gmail.com', 'nablus', '123');
 
 --
 -- Indexes for dumped tables

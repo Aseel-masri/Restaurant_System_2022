@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="438.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.software.restaurants_rating_2022.MenuController">
    <children>
-      <ImageView fitHeight="461.0" fitWidth="303.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="menu" fitHeight="461.0" fitWidth="303.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../image/9.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="266.0" layoutY="-1.0" mnemonicParsing="false" opacity="0.97" prefHeight="42.0" prefWidth="37.0" style="-fx-background-color: none;">
+      <Button fx:id="closepage" layoutX="266.0" layoutY="-1.0" mnemonicParsing="false" onAction="#closepage" opacity="0.97" prefHeight="42.0" prefWidth="37.0" style="-fx-background-color: none;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../image/bk2.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

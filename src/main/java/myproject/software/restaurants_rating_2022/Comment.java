@@ -4,14 +4,14 @@ public class Comment {
    public  String AuthorEmail;
    public  String text;
    public String  Day_Date;
+   public int c_id;
+ public Comment(){}
 
-   public Comment(){
-
-   }
     public Comment(String authorEmail, String text, String day_Date) {
        this.AuthorEmail = authorEmail;
         this.text = text;
         this.Day_Date = day_Date;
+        c_id = 0;
     }
 
     public String getAuthorEmail() {
@@ -36,5 +36,12 @@ public class Comment {
 
     public void setDay_Date(String day_Date) {
         Day_Date = day_Date;
+    }
+    public int getid() {
+        return this.c_id;
+    }
+
+    public void setid(int id) {
+        this.c_id = id;
     }
 }

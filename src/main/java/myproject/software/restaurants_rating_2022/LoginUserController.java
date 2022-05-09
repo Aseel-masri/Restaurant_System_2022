@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.PasswordField;
@@ -67,6 +68,11 @@ public class LoginUserController {
 
 
 
+            }
+            else{
+                Alert a=new Alert(Alert.AlertType.ERROR);
+                a.setHeaderText("wrong email or password please try again");
+                a.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();
