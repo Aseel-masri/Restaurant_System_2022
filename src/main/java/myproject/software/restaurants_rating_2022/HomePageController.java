@@ -767,5 +767,17 @@ vB.setVisible(true);
         s.executeUpdate(sql);
         c.close();
     }
+    @FXML
+    void openHelp(MouseEvent event) throws IOException {
+        Stage stage=new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AboutUs.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        // stage.setHeight(381);
+        // stage.setWidth(513);
+        stage.show();
+    }
 
 }

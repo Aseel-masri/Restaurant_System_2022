@@ -22,4 +22,16 @@ public class conection {
 
         return connection;
     }
+
+    public Connection testConn(String dbName,String userName,String password){
+        try {
+
+            connection= DriverManager.getConnection("jdbc:mysql://localhost/"+dbName,userName,password);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }return connection;
+
+    }
 }

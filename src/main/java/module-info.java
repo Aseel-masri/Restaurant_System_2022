@@ -12,6 +12,7 @@ module myproject.software.restaurants_rating_2022 {
     requires com.almasb.fxgl.all;
     requires com.jfoenix;
     requires java.sql;
+    requires org.junit.jupiter.api;
 
     opens myproject.software.restaurants_rating_2022 to javafx.fxml;
     exports myproject.software.restaurants_rating_2022;

@@ -136,13 +136,16 @@
         </HBox>
         <HBox layoutX="1071.0" layoutY="7.0" prefHeight="31.0" prefWidth="123.0">
             <children>
-                <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="26.0" fitWidth="25.0" onMouseClicked="#openHelp" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../image/help.png" />
                     </image>
                     <HBox.margin>
                         <Insets top="5.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
                 <ImageView fitHeight="26.0" fitWidth="30.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
                     <image>
