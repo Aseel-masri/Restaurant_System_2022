@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2022 at 08:35 PM
+-- Generation Time: May 09, 2022 at 10:02 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -89,24 +89,25 @@ CREATE TABLE `rating` (
   `foodquality_rate` float NOT NULL,
   `Priceforservice_rate` float NOT NULL,
   `Cleanliness_rate` float NOT NULL,
-  `avg_rate` float NOT NULL
+  `avg_rate` float NOT NULL,
+  `avarage` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `rating`
 --
 
-INSERT INTO `rating` (`rate_id`, `user-id`, `res_id`, `services_rate`, `foodquality_rate`, `Priceforservice_rate`, `Cleanliness_rate`, `avg_rate`) VALUES
-(1, 3, 6, 3, 3, 3, 3, 3),
-(2, 1, 1, 5, 4, 3, 4, 4),
-(7, 2, 5, 5, 5, 5, 5, 5),
-(8, 1, 7, 2, 2, 2, 2, 2),
-(9, 1, 10, 5, 5, 5, 5, 3.76852),
-(10, 1, 8, 2, 2, 2, 2, 2.96693),
-(11, 1, 4, 2, 2, 2, 2, 2),
-(12, 2, 4, 4, 4, 4, 4, 3),
-(13, 3, 4, 4, 4, 4, 4, 3),
-(14, 4, 4, 5, 5, 5, 5, 3.25);
+INSERT INTO `rating` (`rate_id`, `user-id`, `res_id`, `services_rate`, `foodquality_rate`, `Priceforservice_rate`, `Cleanliness_rate`, `avg_rate`, `avarage`) VALUES
+(1, 3, 6, 3, 3, 3, 3, 3, 0),
+(2, 1, 1, 5, 4, 3, 4, 4, 0),
+(7, 2, 5, 5, 5, 5, 5, 5, 0),
+(8, 1, 7, 2, 2, 2, 2, 2, 0),
+(9, 1, 10, 5, 5, 5, 5, 3.76852, 0),
+(10, 1, 8, 2, 2, 2, 2, 2.96693, 0),
+(11, 1, 4, 2, 2, 2, 2, 2, 0),
+(12, 2, 4, 4, 4, 4, 4, 3, 0),
+(13, 3, 4, 4, 4, 4, 4, 3, 0),
+(14, 4, 4, 5, 5, 5, 5, 3.25, 0);
 
 -- --------------------------------------------------------
 

@@ -386,7 +386,7 @@ public class HomePageController implements Initializable {
 
 
         overallrating.setRating(0.0);
-        overallrating.setPartialRating(true);
+        overallrating.setPartialRating(false);
 
         List<Restaurant>NormalRstaurants=new ArrayList<>();
         List<Restaurant>TrendingRstaurants=new ArrayList<>();
@@ -530,7 +530,7 @@ continue;
                 double avg=(clear_rate.getRating()+food_rate.getRating()+services_rate.getRating()+price_rate.getRating())/4.0;
                 totalAvg=totalAvg+avg;
                 totalAvg=totalAvg/counter;
-                String sql1="insert into rating values('"+id+"','"+this.loggedUser_id+"','"+this.choseenres_id+"','"+services_rate.getRating()+"','"+food_rate.getRating()+"','"+price_rate.getRating()+"','"+clear_rate.getRating()+"','"+totalAvg+"')";
+                String sql1="insert into rating values('"+id+"','"+this.loggedUser_id+"','"+this.choseenres_id+"','"+services_rate.getRating()+"','"+food_rate.getRating()+"','"+price_rate.getRating()+"','"+clear_rate.getRating()+"','"+totalAvg+"','"+avg+"')";
                 s.execute(sql1);
                 connection.close();
                 Alert a=new Alert(Alert.AlertType.NONE);
