@@ -6,7 +6,7 @@ public class conection {
     public  Connection getConnection(){
 
 
-        String dbName="rrrs";
+        String dbName="rrrs3";
         String userName="root";
         String password="";
 

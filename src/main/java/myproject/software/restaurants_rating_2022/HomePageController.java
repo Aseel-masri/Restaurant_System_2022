@@ -393,6 +393,7 @@ public class HomePageController implements Initializable {
 
 
 
+
         try{  commentsList.addAll(getDataCom());}catch(Exception e){e.printStackTrace();}
 
         try {
@@ -401,7 +402,8 @@ public class HomePageController implements Initializable {
             e.printStackTrace();
         }
         try {
-            TrendingRstaurants.addAll(getData());
+          //  TrendingRstaurants.addAll(getData()); ---aseel edit
+            TrendingRstaurants.addAll(getTrend());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -452,8 +454,8 @@ public class HomePageController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("Restaurant.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 RestaurantController restaurantController=fxmlLoader.getController();
-                restaurantController.setData(TrendingRstaurants.get(i+3),myListener);
-
+             //   restaurantController.setData(TrendingRstaurants.get(i+3),myListener); Aseel edit
+                restaurantController.setData(TrendingRstaurants.get(i),myListener);
                 grid2.add(anchorPane,coulmn,row);
                 coulmn++;
                 grid2.setHgap(10);
@@ -717,6 +719,53 @@ vB.setVisible(true);
             //   grid3.setHgap(10);
         }
 
+    }
+    //******************************************Aseel
+    public List<Restaurant> getTrend() throws SQLException {
+        List<Restaurant>rstaurants=new ArrayList<>();
+
+        Restaurant restaurantt;
+        try {
+            Updatedata();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        restaurantt = new Restaurant();
+        conection conClass=new conection();
+        Connection c=conClass.getConnection();
+
+        Statement s=c.createStatement();
+        String sql="SELECT rating.res_id, restaurants.res_name, restaurants.res_main_image,AVG(avarage) ,restaurants.res_id FROM rating ,restaurants WHERE rating.res_id=restaurants.res_id  " +
+                "GROUP BY rating.res_id ,restaurants.res_name ORDER BY AVG(avarage) DESC  ;\n";
+        ResultSet r=s.executeQuery(sql);
+        while (r.next()) {
+            restaurantt = new Restaurant();
+            restaurantt.setName(r.getString("res_name"));
+            restaurantt.setImgSrc(r.getString("res_main_image"));
+            restaurantt.setId(r.getInt("restaurants.res_id"));
+
+            // restaurantt.setRest_rate("/image/onestar.png");
+            //System.out.println(r.getString("AVG(rating.avg_rate)"));
+            float x = Float.parseFloat(r.getString("AVG(avarage)"));
+            Statement s1=c.createStatement();
+            String sql1="select avg_rate from rating where res_id='"+restaurantt.getId()+"'";
+            ResultSet r1=s1.executeQuery(sql1);
+            while(r1.next()){
+                o=r1.getFloat("avg_rate");restaurantt.setRate(o);
+            }
+            rstaurants.add(restaurantt);
+
+        }
+        return rstaurants;
+    }
+    private void Updatedata() throws Exception {
+        conection conClass=new conection();
+        Connection c=conClass.getConnection();
+
+        Statement s=c.createStatement();
+        String sql="UPDATE `rating` SET `avarage` = (`services_rate`+`foodquality_rate`+`Priceforservice_rate`+`Cleanliness_rate`)/4";
+        s.executeUpdate(sql);
+        c.close();
     }
 
 }

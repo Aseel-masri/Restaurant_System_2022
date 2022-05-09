@@ -29,18 +29,22 @@ public class Trending implements Initializable {
     private ScrollPane scroll;
 
 
-    private List<Restaurant> getData() throws SQLException {
+    public List<Restaurant> getData() throws SQLException {
         List<Restaurant>rstaurants=new ArrayList<>();
 
         Restaurant restaurantt;
-
+        try {
+            Updatedata();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         restaurantt = new Restaurant();
         conection conClass=new conection();
         Connection c=conClass.getConnection();
 
         Statement s=c.createStatement();
-        String sql="SELECT rating.res_id, restaurants.res_name, restaurants.res_main_image,AVG(rating.avg_rate) FROM rating ,restaurants WHERE rating.res_id=restaurants.res_id  " +
-                "GROUP BY rating.res_id ,restaurants.res_name ORDER BY AVG(rating.avg_rate) DESC  ;\n";
+        String sql="SELECT rating.res_id, restaurants.res_name, restaurants.res_main_image,AVG(avarage) FROM rating ,restaurants WHERE rating.res_id=restaurants.res_id  " +
+                "GROUP BY rating.res_id ,restaurants.res_name ORDER BY AVG(avarage) DESC  ;\n";
         ResultSet r=s.executeQuery(sql);
         while (r.next()) {
             restaurantt = new Restaurant();
@@ -48,7 +52,7 @@ public class Trending implements Initializable {
             restaurantt.setImgSrc(r.getString("res_main_image"));
            // restaurantt.setRest_rate("/image/onestar.png");
             //System.out.println(r.getString("AVG(rating.avg_rate)"));
-            float x = Float.parseFloat(r.getString("AVG(rating.avg_rate)"));
+            float x = Float.parseFloat(r.getString("AVG(avarage)"));
             System.out.println(x);
            /* if (1 <= r.getFloat("AVG(rating.avg_rate)") && 2 < r.getFloat("AVG(rating.avg_rate)")) {
                 restaurantt.setRest_rate("/image/onestar.png");
@@ -84,6 +88,17 @@ public class Trending implements Initializable {
         }
         return rstaurants;
     }
+
+    private void Updatedata() throws Exception {
+        conection conClass=new conection();
+        Connection c=conClass.getConnection();
+
+        Statement s=c.createStatement();
+        String sql="UPDATE `rating` SET `avarage` = (`services_rate`+`foodquality_rate`+`Priceforservice_rate`+`Cleanliness_rate`)/4";
+        s.executeUpdate(sql);
+        c.close();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Restaurant>allrstaurants=new ArrayList<>();
