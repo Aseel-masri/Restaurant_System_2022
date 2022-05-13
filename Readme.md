@@ -60,7 +60,14 @@
 ### the user signup screen:
 <img src="https://user-images.githubusercontent.com/91554496/168393524-86c1a255-e9cd-48fa-895a-2a3538488ae5.png" width="1000px" height="500px">
 
+### the restaurant owner login screen:
+<img src="https://user-images.githubusercontent.com/91554496/168394317-9539f15d-393d-491e-a878-2f7a5c3573f2.jpg "width="1000px" height="500px">
 
+### the restaurant owner signup screen:
+<img src="https://user-images.githubusercontent.com/91554496/168394302-a875b658-b31d-4a85-b1a4-ddefbd589ce7.jpg" width="1000px" height="500px">
+
+### the manager login screen:
+<img src="https://user-images.githubusercontent.com/91554496/168394480-7a6b6f59-b00d-46d5-8dc0-d6aad1310ac8.jpg" width="1000px" height="500px">
 
 
 
