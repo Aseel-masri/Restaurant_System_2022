@@ -24,5 +24,5 @@
 
 ## Dialy meeting
 
-<img src="https://user-images.githubusercontent.com/91554496/168390494-c7c45d3a-edc6-44d5-b7ec-bfb52b1bd714.jpg" width="400px" height="400px">
+<img src="https://user-images.githubusercontent.com/91554496/168390494-c7c45d3a-edc6-44d5-b7ec-bfb52b1bd714.jpg" width="400px" height="600px">
 
