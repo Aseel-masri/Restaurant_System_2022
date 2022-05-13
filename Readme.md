@@ -51,6 +51,15 @@
 ## the help/about us screen:
 <img src="https://user-images.githubusercontent.com/91554496/168392930-2a4b1ccf-289f-4a4a-9bcb-7089e995990d.png" width="1000px" height="500px">
 
+## the login/signup screens:
+<img src="https://user-images.githubusercontent.com/91554496/168393208-7f5ed689-b834-4870-a6ee-ad4060b2a5f6.png" width="1000px" height="500px">
+
+### the user login screen:
+<img src="https://user-images.githubusercontent.com/91554496/168393511-3925c008-b002-44a5-a234-349ae4257b46.png" width="1000px" height="500px">
+
+### the user signup screen:
+<img src="https://user-images.githubusercontent.com/91554496/168393524-86c1a255-e9cd-48fa-895a-2a3538488ae5.png" width="1000px" height="500px">
+
 
 
 
