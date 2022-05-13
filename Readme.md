@@ -1,6 +1,6 @@
 # Restaurants rating & review system
 
-## Tean members:
+## Team members:
 
 ### 1.Baraa Khalaf
 
