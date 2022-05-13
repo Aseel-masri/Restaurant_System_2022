@@ -35,7 +35,7 @@
 ## Screen shots of the project UI
 
 ### the loading screen:
-<img src="https://user-images.githubusercontent.com/91554496/168392128-4e99294f-b647-4825-8ee4-83df56183b26.png" width="400px" height="400px">
+<img src="https://user-images.githubusercontent.com/91554496/168392128-4e99294f-b647-4825-8ee4-83df56183b26.png" width="1000px" height="400px">
 
 
 
