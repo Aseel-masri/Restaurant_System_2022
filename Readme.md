@@ -1,15 +1,15 @@
 # Restaurants rating & review system
 
-##Tean members:
+## Tean members:
 
-###Baraa Khalaf
+### 1.Baraa Khalaf
 
-###Kenana turabi
+### 2.Kenana turabi
 
-###Assel masri
+### 3.Assel masri
 
-###Mira jamous
+### 4.Mira jamous
 
-###Ahmad rasheed
+### 5.Ahmad rasheed
 
-###Osaid yaseen
+### 6.Osaid yaseen
