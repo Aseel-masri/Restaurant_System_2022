@@ -69,5 +69,40 @@
 ### the manager login screen:
 <img src="https://user-images.githubusercontent.com/91554496/168394480-7a6b6f59-b00d-46d5-8dc0-d6aad1310ac8.jpg" width="1000px" height="500px">
 
+## the manager page screens:
+<img src="https://user-images.githubusercontent.com/91554496/168395288-c4f57d1e-e48b-418c-b50a-e58ddf1cc884.jpg" width="1000px" height="500px">
+
+### the manager page screens when lest is open:
+<img src="https://user-images.githubusercontent.com/91554496/168395397-4ee66c6d-f1d7-4c4e-b5bb-91789dedd168.jpg" width="1000px" height="500px">
+
+### the manager page/trending restaurants screen:
+<img src="https://user-images.githubusercontent.com/91554496/168395490-f4bb209d-bb99-4e10-adf1-fd965cd03637.jpg" width="1000px" height="500px">
+
+### the manager page/messages screen:
+<img src="https://user-images.githubusercontent.com/91554496/168395623-d5c5745f-413f-4fad-a271-ae0c818b7356.jpg" width="1000px" height="500px">
+
+### the manager page/reports screen:
+<img src="https://user-images.githubusercontent.com/91554496/168395678-b09c2959-070d-46cf-a4e6-a7666f72c75c.jpg" width="1000px" height="500px">
+
+### the manager page/AllRestaurants screen:
+<img src="https://user-images.githubusercontent.com/91554496/168395832-878b73f0-95ce-40e1-a57d-9724afe6615d.jpg" width="1000px" height="500px">
+
+### the manager page/AllRestaurants/delete comment screen:
+<img src="https://user-images.githubusercontent.com/91554496/168395920-78c4fbf0-a201-4f53-9a0b-2af9b72b85ab.jpg" width="1000px" height="500px">
 
 
+## the restaurants owners screens:
+<img src="https://user-images.githubusercontent.com/91554496/168396176-379d4735-915c-4847-9c2d-69c9a47628b6.jpg" width="1000px" height="500px">
+
+### the owners page/AllRestaurants screen:
+<img src="https://user-images.githubusercontent.com/91554496/168396280-e51995c3-d880-4b6e-b3eb-3764330b6e52.jpg" width="1000px" height="500px">
+
+### the owners page/AllRestaurants/add & update restaurants screens:
+<img src="https://user-images.githubusercontent.com/91554496/168396375-5279a081-60d0-41f3-b312-62bf6d73baea.jpg" width="1000px" height="500px">
+<img src="https://user-images.githubusercontent.com/91554496/168396414-61cb20bd-3704-480c-824f-d7ce96a5096f.jpg" width="1000px" height="500px">
+
+### the owners page/messages screen:
+<img src="https://user-images.githubusercontent.com/91554496/168396519-55a8c249-9164-468a-a7c2-28c948578625.jpg" width="1000px" height="500px">
+
+### the owners page/reports screen:
+<img src="https://user-images.githubusercontent.com/91554496/168396602-e5818078-bde0-4516-aff3-4e09c03f68ef.jpg" width="1000px" height="500px">
