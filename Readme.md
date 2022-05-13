@@ -24,4 +24,4 @@
 
 ## Dialy meeting
 
-![d9ced1c2-0003-4e5d-b893-baa1498411d8](https://user-images.githubusercontent.com/91554496/168390104-910db59d-a72e-4b2e-98fc-34563028342e.jpg %20 400x400)
+![d9ced1c2-0003-4e5d-b893-baa1498411d8](https://user-images.githubusercontent.com/91554496/168390104-910db59d-a72e-4b2e-98fc-34563028342e.jpg%20400x400)
