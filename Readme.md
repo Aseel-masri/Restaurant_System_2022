@@ -38,9 +38,13 @@
 <img src="https://user-images.githubusercontent.com/91554496/168392128-4e99294f-b647-4825-8ee4-83df56183b26.png" width="1000px" height="500px">
 
 ### the Home page screen:
+
 <img src="https://user-images.githubusercontent.com/91554496/168392358-7be2291b-a63c-4fd5-900b-949ea67d0b95.png" width="1000px" height="500px">
+
 ### the Home page/restaurant info screen:
+
 <img src="https://user-images.githubusercontent.com/91554496/168392445-40176123-b69d-4075-855a-3b2313e59101.png" width="1000px" height="500px">
+
 ### the Home page/restaurant info/with menu screen:
 <img src="https://user-images.githubusercontent.com/91554496/168392627-c67b7341-1fef-4161-967b-88e59fd7f6d8.png" width="1000px" height="500px">
 
