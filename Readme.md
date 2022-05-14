@@ -57,6 +57,12 @@
 ### the Home page/restaurant info/with menu screen:
 <img src="https://user-images.githubusercontent.com/91554496/168392627-c67b7341-1fef-4161-967b-88e59fd7f6d8.png" width="1000px" height="500px">
 
+### the Home page/search on restaurant name and the result screen:
+<img src="https://user-images.githubusercontent.com/91554496/168417249-74298708-6af5-49bc-902c-a4ccd7f5b1db.png" width="1000px" height="500px">
+
+### the Home page/search on restaurant location and the result screen:
+<img src="https://user-images.githubusercontent.com/91554496/168417285-4a361476-0e5b-4824-a48e-96b1b0144251.png" width="1000px" height="500px">
+
 ## the help/about us screen:
 <img src="https://user-images.githubusercontent.com/91554496/168392930-2a4b1ccf-289f-4a4a-9bcb-7089e995990d.png" width="1000px" height="500px">
 
