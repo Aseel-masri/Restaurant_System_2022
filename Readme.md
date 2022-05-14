@@ -4,11 +4,11 @@
 
 ### 1.Baraa Khalaf (team leader & system analysis, backend & frontend developer)
 
-### 2.Kenana turabi (fronted developer,UI/UX)
+### 2.Kenana turabi (fronted , backend developer & UI/UX)
 
-### 3.Assel masri (frontend & backend developr)
+### 3.Assel masri (frontend & backend developer)
 
-### 4.Mira jamous (frontend & backend developr)
+### 4.Mira jamous (frontend & backend developer)
 
 ### 5.Ahmad rasheed (frontend developer)
 
@@ -16,7 +16,9 @@
 
 ## Stackholder types:
 
-### 1.normal people who want to rate
+### 1.guests
+
+### 1.logged in users
 
 ### 2.restaurants owners
 
@@ -30,7 +32,14 @@
 
 ### 1.Baraa Khalaf and Kenana turabi
 
-### 2.Assel masri and mira jamous
+### 2.Assel masri and Mira jamous
+
+### 3.Kenana turabi and Ahmad Rasheed
+
+### 4.Baraa Khalaf & Ahmad Rasheed  
+
+### 4.Baraa Khalaf & Osaid Yaseen
+
 
 ## Screen shots of the project UI
 
