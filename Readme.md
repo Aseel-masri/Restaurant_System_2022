@@ -4,15 +4,15 @@
 
 ### 1.Baraa Khalaf (team leader & system analysis, backend & frontend developer)
 
-### 2.Kenana turabi (fronted , backend developer & UI/UX)
+### 2.Kenana turabi (system analysis & frontend,backend developer & UI/UX)
 
-### 3.Assel masri (frontend & backend developer)
+### 3.Assel masri (system analysis & frontend & backend developer)
 
-### 4.Mira jamous (frontend & backend developer)
+### 4.Mira jamous (system analysis & frontend & backend developer)
 
-### 5.Ahmad rasheed (frontend developer)
+### 5.Ahmad rasheed (system analysis & frontend developer)
 
-### 6.Osaid yaseen (frontend developer)
+### 6.Osaid yaseen (system analysis & frontend developer)
 
 ## Stackholder types:
 
