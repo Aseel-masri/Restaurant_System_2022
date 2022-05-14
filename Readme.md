@@ -22,7 +22,7 @@
 
 ### 2.restaurants owners
 
-### 3.the manager of the system
+### 4.the manager of the system
 
 ## Dialy meeting
 
@@ -38,7 +38,7 @@
 
 ### 4.Baraa Khalaf & Ahmad Rasheed  
 
-### 4.Baraa Khalaf & Osaid Yaseen
+### 5.Baraa Khalaf & Osaid Yaseen
 
 
 ## Screen shots of the project UI
