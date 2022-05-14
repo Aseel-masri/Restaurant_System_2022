@@ -18,9 +18,9 @@
 
 ### 1.guests
 
-### 1.logged in users
+### 2.logged in users
 
-### 2.restaurants owners
+### 3.restaurants owners
 
 ### 4.the manager of the system
 
